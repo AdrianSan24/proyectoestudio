@@ -51,8 +51,65 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCronometrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCronometrar.Designer.cs">
+      <DependentUpon>FormCronometrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInfoEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInfoEmpleado.Designer.cs">
+      <DependentUpon>FormInfoEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNuevoempleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNuevoempleado.Designer.cs">
+      <DependentUpon>FormNuevoempleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNuevoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNuevoUsuario.Designer.cs">
+      <DependentUpon>FormNuevoUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPerfilUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPerfilUsuario.Designer.cs">
+      <DependentUpon>FormPerfilUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCronometrar.resx">
+      <DependentUpon>FormCronometrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInfoEmpleado.resx">
+      <DependentUpon>FormInfoEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNuevoempleado.resx">
+      <DependentUpon>FormNuevoempleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNuevoUsuario.resx">
+      <DependentUpon>FormNuevoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPerfilUsuario.resx">
+      <DependentUpon>FormPerfilUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
