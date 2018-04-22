@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace proyectoestudio
 {
@@ -15,6 +16,14 @@ namespace proyectoestudio
         public FormLogin()
         {
             InitializeComponent();
+        }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+            SqlConnection conexion = new SqlConnection();
+            SqlCommand comando = new SqlCommand();
+           // conexion.ConnectionString = @”Data Source = Raphael\SQLEXPRESS; Initial Catalog = bdtutorial; Integrated Security = True”;
+           
         }
     }
 }

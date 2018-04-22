@@ -81,6 +81,7 @@
             this.MinimizeBox = false;
             this.Name = "FormLogin";
             this.Text = "Introducir Usuario";
+            this.Load += new System.EventHandler(this.FormLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

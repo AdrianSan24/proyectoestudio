@@ -35,17 +35,15 @@
             this.lblCodigoU = new System.Windows.Forms.Label();
             this.lblApellidosU = new System.Windows.Forms.Label();
             this.lblNombreU = new System.Windows.Forms.Label();
-            this.lblResgistrosrealizados = new System.Windows.Forms.Label();
-            this.txtRegistros = new System.Windows.Forms.TextBox();
             this.btnAñadirEmpleado = new System.Windows.Forms.Button();
             this.btnAñadirUsuario = new System.Windows.Forms.Button();
             this.btnEditarU = new System.Windows.Forms.Button();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.labelPass = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.labelPass2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.labelPass = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxU)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,23 +106,6 @@
             this.lblNombreU.TabIndex = 6;
             this.lblNombreU.Text = "Nombre :";
             // 
-            // lblResgistrosrealizados
-            // 
-            this.lblResgistrosrealizados.AutoSize = true;
-            this.lblResgistrosrealizados.Location = new System.Drawing.Point(13, 185);
-            this.lblResgistrosrealizados.Name = "lblResgistrosrealizados";
-            this.lblResgistrosrealizados.Size = new System.Drawing.Size(146, 17);
-            this.lblResgistrosrealizados.TabIndex = 7;
-            this.lblResgistrosrealizados.Text = "Registros Realizados:";
-            // 
-            // txtRegistros
-            // 
-            this.txtRegistros.Enabled = false;
-            this.txtRegistros.Location = new System.Drawing.Point(13, 206);
-            this.txtRegistros.Name = "txtRegistros";
-            this.txtRegistros.Size = new System.Drawing.Size(100, 22);
-            this.txtRegistros.TabIndex = 8;
-            // 
             // btnAñadirEmpleado
             // 
             this.btnAñadirEmpleado.Location = new System.Drawing.Point(12, 254);
@@ -170,43 +151,43 @@
             this.txtUsuario.Size = new System.Drawing.Size(100, 22);
             this.txtUsuario.TabIndex = 12;
             // 
-            // labelPass
-            // 
-            this.labelPass.AutoSize = true;
-            this.labelPass.Location = new System.Drawing.Point(366, 124);
-            this.labelPass.Name = "labelPass";
-            this.labelPass.Size = new System.Drawing.Size(130, 17);
-            this.labelPass.TabIndex = 15;
-            this.labelPass.Text = "Nueva Contraseña:";
-            this.labelPass.Visible = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(366, 150);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 14;
-            this.textBox1.Visible = false;
-            // 
             // labelPass2
             // 
             this.labelPass2.AutoSize = true;
-            this.labelPass2.Location = new System.Drawing.Point(366, 175);
+            this.labelPass2.Location = new System.Drawing.Point(408, 146);
             this.labelPass2.Name = "labelPass2";
             this.labelPass2.Size = new System.Drawing.Size(130, 17);
-            this.labelPass2.TabIndex = 17;
+            this.labelPass2.TabIndex = 21;
             this.labelPass2.Text = "Repita Contraseña:";
             this.labelPass2.Visible = false;
             // 
             // textBox2
             // 
             this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(366, 201);
+            this.textBox2.Location = new System.Drawing.Point(408, 172);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 16;
+            this.textBox2.TabIndex = 20;
             this.textBox2.Visible = false;
+            // 
+            // labelPass
+            // 
+            this.labelPass.AutoSize = true;
+            this.labelPass.Location = new System.Drawing.Point(408, 95);
+            this.labelPass.Name = "labelPass";
+            this.labelPass.Size = new System.Drawing.Size(130, 17);
+            this.labelPass.TabIndex = 19;
+            this.labelPass.Text = "Nueva Contraseña:";
+            this.labelPass.Visible = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(408, 121);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 18;
+            this.textBox1.Visible = false;
             // 
             // FormPerfilUsuario
             // 
@@ -222,8 +203,6 @@
             this.Controls.Add(this.btnEditarU);
             this.Controls.Add(this.btnAñadirUsuario);
             this.Controls.Add(this.btnAñadirEmpleado);
-            this.Controls.Add(this.txtRegistros);
-            this.Controls.Add(this.lblResgistrosrealizados);
             this.Controls.Add(this.lblNombreU);
             this.Controls.Add(this.lblApellidosU);
             this.Controls.Add(this.lblCodigoU);
@@ -248,16 +227,14 @@
         private System.Windows.Forms.Label lblCodigoU;
         private System.Windows.Forms.Label lblApellidosU;
         private System.Windows.Forms.Label lblNombreU;
-        private System.Windows.Forms.Label lblResgistrosrealizados;
-        private System.Windows.Forms.TextBox txtRegistros;
         private System.Windows.Forms.Button btnAñadirEmpleado;
         private System.Windows.Forms.Button btnAñadirUsuario;
         private System.Windows.Forms.Button btnEditarU;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.Label labelPass;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label labelPass2;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label labelPass;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

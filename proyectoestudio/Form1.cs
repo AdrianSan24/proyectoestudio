@@ -36,5 +36,10 @@ namespace proyectoestudio
         {
 
         }
+
+        private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

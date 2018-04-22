@@ -45,46 +45,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clases\Operario.cs" />
+    <Compile Include="clases\Usuario.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCronometrar.cs">
+    <Compile Include="views\FormInfoOperario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCronometrar.Designer.cs">
-      <DependentUpon>FormCronometrar.cs</DependentUpon>
+    <Compile Include="views\FormInfoOperario.Designer.cs">
+      <DependentUpon>FormInfoOperario.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormInfoEmpleado.cs">
+    <Compile Include="views\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormInfoEmpleado.Designer.cs">
-      <DependentUpon>FormInfoEmpleado.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormLogin.Designer.cs">
+    <Compile Include="views\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNuevoempleado.cs">
+    <Compile Include="views\FormNuevoOperario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormNuevoempleado.Designer.cs">
-      <DependentUpon>FormNuevoempleado.cs</DependentUpon>
+    <Compile Include="views\FormNuevoOperario.Designer.cs">
+      <DependentUpon>FormNuevoOperario.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNuevoUsuario.cs">
+    <Compile Include="views\FormNuevoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormNuevoUsuario.Designer.cs">
+    <Compile Include="views\FormNuevoUsuario.Designer.cs">
       <DependentUpon>FormNuevoUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPerfilUsuario.cs">
+    <Compile Include="views\FormPerfilUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPerfilUsuario.Designer.cs">
+    <Compile Include="views\FormPerfilUsuario.Designer.cs">
       <DependentUpon>FormPerfilUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -92,22 +88,19 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormCronometrar.resx">
-      <DependentUpon>FormCronometrar.cs</DependentUpon>
+    <EmbeddedResource Include="views\FormInfoOperario.resx">
+      <DependentUpon>FormInfoOperario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormInfoEmpleado.resx">
-      <DependentUpon>FormInfoEmpleado.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormLogin.resx">
+    <EmbeddedResource Include="views\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNuevoempleado.resx">
-      <DependentUpon>FormNuevoempleado.cs</DependentUpon>
+    <EmbeddedResource Include="views\FormNuevoOperario.resx">
+      <DependentUpon>FormNuevoOperario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNuevoUsuario.resx">
+    <EmbeddedResource Include="views\FormNuevoUsuario.resx">
       <DependentUpon>FormNuevoUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPerfilUsuario.resx">
+    <EmbeddedResource Include="views\FormPerfilUsuario.resx">
       <DependentUpon>FormPerfilUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -131,6 +124,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
