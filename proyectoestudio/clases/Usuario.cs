@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace proyectoestudio.clases
 {
-    class Usuario
+    public class Usuario
     {
         private bool administrador;
         private Bitmap imagenPerfil;

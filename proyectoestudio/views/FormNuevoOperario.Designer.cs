@@ -130,7 +130,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(433, 303);
+            this.ClientSize = new System.Drawing.Size(463, 313);
             this.Controls.Add(this.comboBoxDepartamento);
             this.Controls.Add(this.lblDepartamento);
             this.Controls.Add(this.btnAñadirE);

@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.listEmpleados = new System.Windows.Forms.ListBox();
             this.btninfo = new System.Windows.Forms.Button();
-            this.btnCronometrar = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,6 +68,7 @@
             this.listEmpleados.Name = "listEmpleados";
             this.listEmpleados.Size = new System.Drawing.Size(294, 500);
             this.listEmpleados.TabIndex = 0;
+            this.listEmpleados.SelectedIndexChanged += new System.EventHandler(this.listEmpleados_SelectedIndexChanged);
             // 
             // btninfo
             // 
@@ -79,15 +79,6 @@
             this.btninfo.Text = "Info";
             this.btninfo.UseVisualStyleBackColor = true;
             this.btninfo.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnCronometrar
-            // 
-            this.btnCronometrar.Location = new System.Drawing.Point(366, 31);
-            this.btnCronometrar.Name = "btnCronometrar";
-            this.btnCronometrar.Size = new System.Drawing.Size(125, 35);
-            this.btnCronometrar.TabIndex = 2;
-            this.btnCronometrar.Text = "Cronometrar";
-            this.btnCronometrar.UseVisualStyleBackColor = true;
             // 
             // menuStrip1
             // 
@@ -115,13 +106,13 @@
             // guardarToolStripMenuItem
             // 
             this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(140, 26);
             this.guardarToolStripMenuItem.Text = "Guardar";
             // 
             // exportarToolStripMenuItem
             // 
             this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-            this.exportarToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.exportarToolStripMenuItem.Size = new System.Drawing.Size(140, 26);
             this.exportarToolStripMenuItem.Text = "Exportar";
             // 
             // departamentosToolStripMenuItem
@@ -136,13 +127,13 @@
             // departamento1ToolStripMenuItem
             // 
             this.departamento1ToolStripMenuItem.Name = "departamento1ToolStripMenuItem";
-            this.departamento1ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.departamento1ToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
             this.departamento1ToolStripMenuItem.Text = "Departamento1";
             // 
             // departamento2ToolStripMenuItem
             // 
             this.departamento2ToolStripMenuItem.Name = "departamento2ToolStripMenuItem";
-            this.departamento2ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.departamento2ToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
             this.departamento2ToolStripMenuItem.Text = "Departamento2";
             // 
             // opcionesToolStripMenuItem
@@ -158,6 +149,7 @@
             this.administrarPerfilToolStripMenuItem.Name = "administrarPerfilToolStripMenuItem";
             this.administrarPerfilToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
             this.administrarPerfilToolStripMenuItem.Text = "Administrar perfil";
+            this.administrarPerfilToolStripMenuItem.Click += new System.EventHandler(this.administrarPerfilToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -170,7 +162,7 @@
             this.panel1.Controls.Add(this.lblCodigo);
             this.panel1.Controls.Add(this.lblApellidos);
             this.panel1.Controls.Add(this.lblNombre);
-            this.panel1.Location = new System.Drawing.Point(12, 79);
+            this.panel1.Location = new System.Drawing.Point(12, 80);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(540, 408);
             this.panel1.TabIndex = 4;
@@ -198,7 +190,7 @@
             this.dGViewDatos.Name = "dGViewDatos";
             this.dGViewDatos.ReadOnly = true;
             this.dGViewDatos.RowTemplate.Height = 24;
-            this.dGViewDatos.Size = new System.Drawing.Size(323, 48);
+            this.dGViewDatos.Size = new System.Drawing.Size(322, 48);
             this.dGViewDatos.TabIndex = 14;
             // 
             // Horainicio
@@ -288,13 +280,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 541);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnCronometrar);
             this.Controls.Add(this.btninfo);
             this.Controls.Add(this.listEmpleados);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Departamentos";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -311,7 +303,6 @@
 
         private System.Windows.Forms.ListBox listEmpleados;
         private System.Windows.Forms.Button btninfo;
-        private System.Windows.Forms.Button btnCronometrar;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;

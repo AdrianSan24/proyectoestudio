@@ -42,6 +42,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.labelPass = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnimage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxU)).BeginInit();
             this.SuspendLayout();
             // 
@@ -168,11 +169,21 @@
             this.textBox1.TabIndex = 18;
             this.textBox1.Visible = false;
             // 
+            // btnimage
+            // 
+            this.btnimage.Location = new System.Drawing.Point(13, 147);
+            this.btnimage.Name = "btnimage";
+            this.btnimage.Size = new System.Drawing.Size(115, 48);
+            this.btnimage.TabIndex = 22;
+            this.btnimage.Text = "Añadir Imagen";
+            this.btnimage.UseVisualStyleBackColor = true;
+            // 
             // FormNuevoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(561, 279);
+            this.Controls.Add(this.btnimage);
             this.Controls.Add(this.labelPass2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.labelPass);
@@ -212,5 +223,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label labelPass;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnimage;
     }
 }

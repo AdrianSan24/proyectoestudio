@@ -1,4 +1,5 @@
-﻿using System;
+﻿using proyectoestudio.clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,7 @@ namespace proyectoestudio
 {
     public partial class FormPerfilUsuario : Form
     {
-        public FormPerfilUsuario()
+        public FormPerfilUsuario(Usuario user)
         {
             InitializeComponent();
         }

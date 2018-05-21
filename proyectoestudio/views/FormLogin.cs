@@ -22,8 +22,11 @@ namespace proyectoestudio
         {
             SqlConnection conexion = new SqlConnection();
             SqlCommand comando = new SqlCommand();
+            //ejemplo conexion
            // conexion.ConnectionString = @”Data Source = Raphael\SQLEXPRESS; Initial Catalog = bdtutorial; Integrated Security = True”;
            
         }
+
+        
     }
 }
