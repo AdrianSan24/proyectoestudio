@@ -32,8 +32,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\mysql\v4.5.2\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clases\Conexiones.cs" />
+    <Compile Include="clases\EstandarMaquina.cs" />
     <Compile Include="clases\Operario.cs" />
     <Compile Include="clases\Usuario.cs" />
     <Compile Include="Form1.cs">
@@ -52,6 +59,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\FormEliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\FormEliminar.Designer.cs">
+      <DependentUpon>FormEliminar.cs</DependentUpon>
     </Compile>
     <Compile Include="views\FormInfoOperario.cs">
       <SubType>Form</SubType>
@@ -87,6 +100,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\FormEliminar.resx">
+      <DependentUpon>FormEliminar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\FormInfoOperario.resx">
       <DependentUpon>FormInfoOperario.cs</DependentUpon>
@@ -126,12 +142,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="images\chicken.png" />
     <Content Include="images\fried-chicken.png" />
     <Content Include="images\users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

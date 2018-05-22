@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPerfilUsuario));
             this.pictureBoxU = new System.Windows.Forms.PictureBox();
             this.txtNombreU = new System.Windows.Forms.TextBox();
             this.txtCodigoU = new System.Windows.Forms.TextBox();
@@ -41,9 +42,13 @@
             this.lblUsuario = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.labelPass2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtcontrasena2 = new System.Windows.Forms.TextBox();
             this.labelPass = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtcontrasena = new System.Windows.Forms.TextBox();
+            this.btnGuardarperfil = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btnEliminarOP = new System.Windows.Forms.Button();
+            this.btnEliminarU = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxU)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,8 +57,10 @@
             this.pictureBoxU.Location = new System.Drawing.Point(13, 13);
             this.pictureBoxU.Name = "pictureBoxU";
             this.pictureBoxU.Size = new System.Drawing.Size(153, 151);
+            this.pictureBoxU.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxU.TabIndex = 0;
             this.pictureBoxU.TabStop = false;
+            this.pictureBoxU.Click += new System.EventHandler(this.pictureBoxU_Click);
             // 
             // txtNombreU
             // 
@@ -108,31 +115,34 @@
             // 
             // btnAñadirEmpleado
             // 
-            this.btnAñadirEmpleado.Location = new System.Drawing.Point(12, 254);
+            this.btnAñadirEmpleado.Location = new System.Drawing.Point(12, 261);
             this.btnAñadirEmpleado.Name = "btnAñadirEmpleado";
             this.btnAñadirEmpleado.Size = new System.Drawing.Size(164, 39);
             this.btnAñadirEmpleado.TabIndex = 9;
             this.btnAñadirEmpleado.Text = "Añadir Empleado";
             this.btnAñadirEmpleado.UseVisualStyleBackColor = true;
+            this.btnAñadirEmpleado.Click += new System.EventHandler(this.btnAñadirEmpleado_Click);
             // 
             // btnAñadirUsuario
             // 
-            this.btnAñadirUsuario.Location = new System.Drawing.Point(182, 255);
+            this.btnAñadirUsuario.Location = new System.Drawing.Point(193, 262);
             this.btnAñadirUsuario.Name = "btnAñadirUsuario";
             this.btnAñadirUsuario.Size = new System.Drawing.Size(187, 38);
             this.btnAñadirUsuario.TabIndex = 10;
             this.btnAñadirUsuario.Text = "Añadir Usuario";
             this.btnAñadirUsuario.UseVisualStyleBackColor = true;
             this.btnAñadirUsuario.Visible = false;
+            this.btnAñadirUsuario.Click += new System.EventHandler(this.btnAñadirUsuario_Click);
             // 
             // btnEditarU
             // 
-            this.btnEditarU.Location = new System.Drawing.Point(375, 254);
+            this.btnEditarU.Location = new System.Drawing.Point(397, 305);
             this.btnEditarU.Name = "btnEditarU";
             this.btnEditarU.Size = new System.Drawing.Size(170, 39);
             this.btnEditarU.TabIndex = 11;
             this.btnEditarU.Text = "Editar Perfil";
             this.btnEditarU.UseVisualStyleBackColor = true;
+            this.btnEditarU.Click += new System.EventHandler(this.btnEditarU_Click);
             // 
             // lblUsuario
             // 
@@ -154,51 +164,88 @@
             // labelPass2
             // 
             this.labelPass2.AutoSize = true;
-            this.labelPass2.Location = new System.Drawing.Point(408, 146);
+            this.labelPass2.Location = new System.Drawing.Point(573, 194);
             this.labelPass2.Name = "labelPass2";
             this.labelPass2.Size = new System.Drawing.Size(130, 17);
             this.labelPass2.TabIndex = 21;
             this.labelPass2.Text = "Repita Contraseña:";
             this.labelPass2.Visible = false;
             // 
-            // textBox2
+            // txtcontrasena2
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(408, 172);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 20;
-            this.textBox2.Visible = false;
+            this.txtcontrasena2.Location = new System.Drawing.Point(576, 226);
+            this.txtcontrasena2.Name = "txtcontrasena2";
+            this.txtcontrasena2.Size = new System.Drawing.Size(100, 22);
+            this.txtcontrasena2.TabIndex = 20;
+            this.txtcontrasena2.Visible = false;
             // 
             // labelPass
             // 
             this.labelPass.AutoSize = true;
-            this.labelPass.Location = new System.Drawing.Point(408, 95);
+            this.labelPass.Location = new System.Drawing.Point(573, 126);
             this.labelPass.Name = "labelPass";
             this.labelPass.Size = new System.Drawing.Size(130, 17);
             this.labelPass.TabIndex = 19;
             this.labelPass.Text = "Nueva Contraseña:";
             this.labelPass.Visible = false;
             // 
-            // textBox1
+            // txtcontrasena
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(408, 121);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 18;
-            this.textBox1.UseSystemPasswordChar = true;
-            this.textBox1.Visible = false;
+            this.txtcontrasena.Location = new System.Drawing.Point(576, 156);
+            this.txtcontrasena.Name = "txtcontrasena";
+            this.txtcontrasena.Size = new System.Drawing.Size(100, 22);
+            this.txtcontrasena.TabIndex = 18;
+            this.txtcontrasena.UseSystemPasswordChar = true;
+            this.txtcontrasena.Visible = false;
+            // 
+            // btnGuardarperfil
+            // 
+            this.btnGuardarperfil.Location = new System.Drawing.Point(597, 39);
+            this.btnGuardarperfil.Name = "btnGuardarperfil";
+            this.btnGuardarperfil.Size = new System.Drawing.Size(153, 46);
+            this.btnGuardarperfil.TabIndex = 22;
+            this.btnGuardarperfil.Text = "Guardar perfil";
+            this.btnGuardarperfil.UseVisualStyleBackColor = true;
+            this.btnGuardarperfil.Visible = false;
+            this.btnGuardarperfil.Click += new System.EventHandler(this.btnGuardarperfil_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // btnEliminarOP
+            // 
+            this.btnEliminarOP.Location = new System.Drawing.Point(13, 306);
+            this.btnEliminarOP.Name = "btnEliminarOP";
+            this.btnEliminarOP.Size = new System.Drawing.Size(163, 40);
+            this.btnEliminarOP.TabIndex = 23;
+            this.btnEliminarOP.Text = "Eliminar Empleado";
+            this.btnEliminarOP.UseVisualStyleBackColor = true;
+            this.btnEliminarOP.Click += new System.EventHandler(this.btnEliminarOP_Click);
+            // 
+            // btnEliminarU
+            // 
+            this.btnEliminarU.Location = new System.Drawing.Point(193, 305);
+            this.btnEliminarU.Name = "btnEliminarU";
+            this.btnEliminarU.Size = new System.Drawing.Size(187, 41);
+            this.btnEliminarU.TabIndex = 24;
+            this.btnEliminarU.Text = "Eliminar Usuario";
+            this.btnEliminarU.UseVisualStyleBackColor = true;
+            this.btnEliminarU.Visible = false;
+            this.btnEliminarU.Click += new System.EventHandler(this.btnEliminarU_Click);
             // 
             // FormPerfilUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 301);
+            this.ClientSize = new System.Drawing.Size(788, 356);
+            this.Controls.Add(this.btnEliminarU);
+            this.Controls.Add(this.btnEliminarOP);
+            this.Controls.Add(this.btnGuardarperfil);
             this.Controls.Add(this.labelPass2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtcontrasena2);
             this.Controls.Add(this.labelPass);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtcontrasena);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.btnEditarU);
@@ -211,6 +258,7 @@
             this.Controls.Add(this.txtCodigoU);
             this.Controls.Add(this.txtNombreU);
             this.Controls.Add(this.pictureBoxU);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormPerfilUsuario";
             this.Text = " Tu Perfil";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxU)).EndInit();
@@ -234,8 +282,12 @@
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label labelPass2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtcontrasena2;
         private System.Windows.Forms.Label labelPass;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtcontrasena;
+        private System.Windows.Forms.Button btnGuardarperfil;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button btnEliminarOP;
+        private System.Windows.Forms.Button btnEliminarU;
     }
 }

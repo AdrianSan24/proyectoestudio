@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNuevoUsuario));
             this.pictureBoxU = new System.Windows.Forms.PictureBox();
             this.lblNombreU = new System.Windows.Forms.Label();
             this.lblApellidosU = new System.Windows.Forms.Label();
@@ -39,10 +40,13 @@
             this.lblPermisos = new System.Windows.Forms.Label();
             this.btnAñadirU = new System.Windows.Forms.Button();
             this.labelPass2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtContraseña2 = new System.Windows.Forms.TextBox();
             this.labelPass = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtContraseña = new System.Windows.Forms.TextBox();
             this.btnimage = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxU)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +79,7 @@
             // lblCodigoU
             // 
             this.lblCodigoU.AutoSize = true;
-            this.lblCodigoU.Location = new System.Drawing.Point(165, 125);
+            this.lblCodigoU.Location = new System.Drawing.Point(154, 164);
             this.lblCodigoU.Name = "lblCodigoU";
             this.lblCodigoU.Size = new System.Drawing.Size(56, 17);
             this.lblCodigoU.TabIndex = 10;
@@ -83,26 +87,25 @@
             // 
             // txtApellidosU
             // 
-            this.txtApellidosU.Enabled = false;
-            this.txtApellidosU.Location = new System.Drawing.Point(154, 96);
+            this.txtApellidosU.Location = new System.Drawing.Point(154, 93);
             this.txtApellidosU.Name = "txtApellidosU";
             this.txtApellidosU.Size = new System.Drawing.Size(180, 22);
             this.txtApellidosU.TabIndex = 9;
             // 
             // txtCodigoU
             // 
-            this.txtCodigoU.Location = new System.Drawing.Point(154, 145);
+            this.txtCodigoU.Location = new System.Drawing.Point(154, 184);
             this.txtCodigoU.Name = "txtCodigoU";
             this.txtCodigoU.Size = new System.Drawing.Size(100, 22);
             this.txtCodigoU.TabIndex = 8;
             // 
             // txtNombreU
             // 
-            this.txtNombreU.Enabled = false;
             this.txtNombreU.Location = new System.Drawing.Point(154, 40);
             this.txtNombreU.Name = "txtNombreU";
             this.txtNombreU.Size = new System.Drawing.Size(100, 22);
             this.txtNombreU.TabIndex = 7;
+            this.txtNombreU.TextChanged += new System.EventHandler(this.txtNombreU_TextChanged);
             // 
             // comboBox1
             // 
@@ -112,6 +115,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 13;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // lblPermisos
             // 
@@ -130,6 +134,7 @@
             this.btnAñadirU.TabIndex = 15;
             this.btnAñadirU.Text = "Añadir";
             this.btnAñadirU.UseVisualStyleBackColor = true;
+            this.btnAñadirU.Click += new System.EventHandler(this.btnAñadirU_Click);
             // 
             // labelPass2
             // 
@@ -139,16 +144,13 @@
             this.labelPass2.Size = new System.Drawing.Size(130, 17);
             this.labelPass2.TabIndex = 21;
             this.labelPass2.Text = "Repita Contraseña:";
-            this.labelPass2.Visible = false;
             // 
-            // textBox2
+            // txtContraseña2
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(387, 173);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 20;
-            this.textBox2.Visible = false;
+            this.txtContraseña2.Location = new System.Drawing.Point(387, 173);
+            this.txtContraseña2.Name = "txtContraseña2";
+            this.txtContraseña2.Size = new System.Drawing.Size(100, 22);
+            this.txtContraseña2.TabIndex = 20;
             // 
             // labelPass
             // 
@@ -158,16 +160,13 @@
             this.labelPass.Size = new System.Drawing.Size(130, 17);
             this.labelPass.TabIndex = 19;
             this.labelPass.Text = "Nueva Contraseña:";
-            this.labelPass.Visible = false;
             // 
-            // textBox1
+            // txtContraseña
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(387, 122);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 18;
-            this.textBox1.Visible = false;
+            this.txtContraseña.Location = new System.Drawing.Point(387, 122);
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.Size = new System.Drawing.Size(100, 22);
+            this.txtContraseña.TabIndex = 18;
             // 
             // btnimage
             // 
@@ -177,17 +176,40 @@
             this.btnimage.TabIndex = 22;
             this.btnimage.Text = "Añadir Imagen";
             this.btnimage.UseVisualStyleBackColor = true;
+            this.btnimage.Click += new System.EventHandler(this.btnimage_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(154, 118);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(57, 17);
+            this.lblUsuario.TabIndex = 23;
+            this.lblUsuario.Text = "Usuario";
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Location = new System.Drawing.Point(157, 139);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(100, 22);
+            this.txtUsuario.TabIndex = 24;
             // 
             // FormNuevoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(561, 279);
+            this.Controls.Add(this.txtUsuario);
+            this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.btnimage);
             this.Controls.Add(this.labelPass2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtContraseña2);
             this.Controls.Add(this.labelPass);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.btnAñadirU);
             this.Controls.Add(this.lblPermisos);
             this.Controls.Add(this.comboBox1);
@@ -198,9 +220,12 @@
             this.Controls.Add(this.txtCodigoU);
             this.Controls.Add(this.txtNombreU);
             this.Controls.Add(this.pictureBoxU);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormNuevoUsuario";
             this.Text = "Nuevo Usuario";
+            this.Load += new System.EventHandler(this.FormNuevoUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxU)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -220,9 +245,12 @@
         private System.Windows.Forms.Label lblPermisos;
         private System.Windows.Forms.Button btnAñadirU;
         private System.Windows.Forms.Label labelPass2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtContraseña2;
         private System.Windows.Forms.Label labelPass;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Button btnimage;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.TextBox txtUsuario;
     }
 }

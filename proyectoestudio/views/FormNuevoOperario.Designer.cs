@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNuevoempleado));
             this.btnAñadirE = new System.Windows.Forms.Button();
             this.lblNombreE = new System.Windows.Forms.Label();
             this.lblApellidosE = new System.Windows.Forms.Label();
@@ -36,19 +37,27 @@
             this.txtCodigoE = new System.Windows.Forms.TextBox();
             this.txtNombreE = new System.Windows.Forms.TextBox();
             this.pictureBoxE = new System.Windows.Forms.PictureBox();
-            this.comboBoxDepartamento = new System.Windows.Forms.ComboBox();
-            this.lblDepartamento = new System.Windows.Forms.Label();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtContraseña = new System.Windows.Forms.TextBox();
+            this.txtContraseña2 = new System.Windows.Forms.TextBox();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.labelcontraseña = new System.Windows.Forms.Label();
+            this.labelContraseña2 = new System.Windows.Forms.Label();
+            this.btnimage = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxE)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAñadirE
             // 
+            this.btnAñadirE.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAñadirE.Location = new System.Drawing.Point(127, 242);
             this.btnAñadirE.Name = "btnAñadirE";
             this.btnAñadirE.Size = new System.Drawing.Size(176, 49);
             this.btnAñadirE.TabIndex = 23;
             this.btnAñadirE.Text = "Añadir";
             this.btnAñadirE.UseVisualStyleBackColor = true;
+            this.btnAñadirE.Click += new System.EventHandler(this.btnAñadirE_Click);
             // 
             // lblNombreE
             // 
@@ -79,7 +88,6 @@
             // 
             // txtApellidosE
             // 
-            this.txtApellidosE.Enabled = false;
             this.txtApellidosE.Location = new System.Drawing.Point(151, 94);
             this.txtApellidosE.Name = "txtApellidosE";
             this.txtApellidosE.Size = new System.Drawing.Size(180, 22);
@@ -94,7 +102,6 @@
             // 
             // txtNombreE
             // 
-            this.txtNombreE.Enabled = false;
             this.txtNombreE.Location = new System.Drawing.Point(151, 38);
             this.txtNombreE.Name = "txtNombreE";
             this.txtNombreE.Size = new System.Drawing.Size(100, 22);
@@ -108,31 +115,80 @@
             this.pictureBoxE.TabIndex = 16;
             this.pictureBoxE.TabStop = false;
             // 
-            // comboBoxDepartamento
+            // txtUsuario
             // 
-            this.comboBoxDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDepartamento.FormattingEnabled = true;
-            this.comboBoxDepartamento.Location = new System.Drawing.Point(283, 143);
-            this.comboBoxDepartamento.Name = "comboBoxDepartamento";
-            this.comboBoxDepartamento.Size = new System.Drawing.Size(121, 24);
-            this.comboBoxDepartamento.TabIndex = 25;
+            this.txtUsuario.Location = new System.Drawing.Point(428, 38);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(100, 22);
+            this.txtUsuario.TabIndex = 24;
             // 
-            // lblDepartamento
+            // txtContraseña
             // 
-            this.lblDepartamento.AutoSize = true;
-            this.lblDepartamento.Location = new System.Drawing.Point(280, 123);
-            this.lblDepartamento.Name = "lblDepartamento";
-            this.lblDepartamento.Size = new System.Drawing.Size(98, 17);
-            this.lblDepartamento.TabIndex = 24;
-            this.lblDepartamento.Text = "Departamento";
+            this.txtContraseña.Location = new System.Drawing.Point(428, 94);
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.Size = new System.Drawing.Size(100, 22);
+            this.txtContraseña.TabIndex = 25;
+            // 
+            // txtContraseña2
+            // 
+            this.txtContraseña2.Location = new System.Drawing.Point(428, 143);
+            this.txtContraseña2.Name = "txtContraseña2";
+            this.txtContraseña2.Size = new System.Drawing.Size(100, 22);
+            this.txtContraseña2.TabIndex = 26;
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(428, 13);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(57, 17);
+            this.lblUsuario.TabIndex = 27;
+            this.lblUsuario.Text = "Usuario";
+            // 
+            // labelcontraseña
+            // 
+            this.labelcontraseña.AutoSize = true;
+            this.labelcontraseña.Location = new System.Drawing.Point(428, 71);
+            this.labelcontraseña.Name = "labelcontraseña";
+            this.labelcontraseña.Size = new System.Drawing.Size(81, 17);
+            this.labelcontraseña.TabIndex = 28;
+            this.labelcontraseña.Text = "Contraseña";
+            // 
+            // labelContraseña2
+            // 
+            this.labelContraseña2.AutoSize = true;
+            this.labelContraseña2.Location = new System.Drawing.Point(428, 123);
+            this.labelContraseña2.Name = "labelContraseña2";
+            this.labelContraseña2.Size = new System.Drawing.Size(89, 17);
+            this.labelContraseña2.TabIndex = 29;
+            this.labelContraseña2.Text = "Contraseña2";
+            // 
+            // btnimage
+            // 
+            this.btnimage.Location = new System.Drawing.Point(10, 143);
+            this.btnimage.Name = "btnimage";
+            this.btnimage.Size = new System.Drawing.Size(115, 48);
+            this.btnimage.TabIndex = 30;
+            this.btnimage.Text = "Añadir Imagen";
+            this.btnimage.UseVisualStyleBackColor = true;
+            this.btnimage.Click += new System.EventHandler(this.btnimage_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // FormNuevoempleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(463, 313);
-            this.Controls.Add(this.comboBoxDepartamento);
-            this.Controls.Add(this.lblDepartamento);
+            this.ClientSize = new System.Drawing.Size(642, 313);
+            this.Controls.Add(this.btnimage);
+            this.Controls.Add(this.labelContraseña2);
+            this.Controls.Add(this.labelcontraseña);
+            this.Controls.Add(this.lblUsuario);
+            this.Controls.Add(this.txtContraseña2);
+            this.Controls.Add(this.txtContraseña);
+            this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.btnAñadirE);
             this.Controls.Add(this.lblNombreE);
             this.Controls.Add(this.lblApellidosE);
@@ -141,8 +197,12 @@
             this.Controls.Add(this.txtCodigoE);
             this.Controls.Add(this.txtNombreE);
             this.Controls.Add(this.pictureBoxE);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormNuevoempleado";
             this.Text = "Nuevo empleado";
+            this.Load += new System.EventHandler(this.FormNuevoempleado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxE)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -159,7 +219,13 @@
         private System.Windows.Forms.TextBox txtCodigoE;
         private System.Windows.Forms.TextBox txtNombreE;
         private System.Windows.Forms.PictureBox pictureBoxE;
-        private System.Windows.Forms.ComboBox comboBoxDepartamento;
-        private System.Windows.Forms.Label lblDepartamento;
+        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.TextBox txtContraseña;
+        private System.Windows.Forms.TextBox txtContraseña2;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.Label labelcontraseña;
+        private System.Windows.Forms.Label labelContraseña2;
+        private System.Windows.Forms.Button btnimage;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

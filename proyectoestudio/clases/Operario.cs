@@ -10,15 +10,22 @@ namespace proyectoestudio.clases
     public class Operario
     {
         public Image foto;
+        public string rutafoto;
         private string nombre;
         private string apellidos;
         private string codigo;
-        private List<string> horasInicio;
-        private List<string> horasFin;
-        private List<string> tiempoParada;
+        private string usuario;
+        private string contraseña;
+        public List<string> horasInicio;
+        public List<string> horasFin;
+        public List<string> tiempoParada;
+        public List<string> codigoParada;
         public string Nombre { get; set; }
+        public string Usuario { get; set; }
+        public string Contraseña { get; set; }
         public string Apellidos { get; set; }
         public string Codigo { get; set; }
+        public Image Foto { get; set; }
         public void set_HorasInicio(string value)
         {
             this.horasInicio.Add(value);

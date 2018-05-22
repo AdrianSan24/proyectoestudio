@@ -29,21 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.listEmpleados = new System.Windows.Forms.ListBox();
             this.btninfo = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.departamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.departamento1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.departamento2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarPerfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblRegistro = new System.Windows.Forms.Label();
             this.dGViewDatos = new System.Windows.Forms.DataGridView();
             this.Horainicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoMaquina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoraFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tiempo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCodigo = new System.Windows.Forms.TextBox();
@@ -54,6 +50,11 @@
             this.lblApellidos = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.cbxDepartamento = new System.Windows.Forms.ComboBox();
+            this.lblmaquina = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtTiempoestandar = new System.Windows.Forms.TextBox();
+            this.lblOscilacion = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGViewDatos)).BeginInit();
@@ -84,57 +85,12 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.archivoToolStripMenuItem,
-            this.departamentosToolStripMenuItem,
             this.opcionesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(883, 28);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // archivoToolStripMenuItem
-            // 
-            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.guardarToolStripMenuItem,
-            this.exportarToolStripMenuItem});
-            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
-            this.archivoToolStripMenuItem.Text = "Archivo";
-            this.archivoToolStripMenuItem.Click += new System.EventHandler(this.archivoToolStripMenuItem_Click);
-            // 
-            // guardarToolStripMenuItem
-            // 
-            this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(140, 26);
-            this.guardarToolStripMenuItem.Text = "Guardar";
-            // 
-            // exportarToolStripMenuItem
-            // 
-            this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-            this.exportarToolStripMenuItem.Size = new System.Drawing.Size(140, 26);
-            this.exportarToolStripMenuItem.Text = "Exportar";
-            // 
-            // departamentosToolStripMenuItem
-            // 
-            this.departamentosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.departamento1ToolStripMenuItem,
-            this.departamento2ToolStripMenuItem});
-            this.departamentosToolStripMenuItem.Name = "departamentosToolStripMenuItem";
-            this.departamentosToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
-            this.departamentosToolStripMenuItem.Text = "Departamentos";
-            // 
-            // departamento1ToolStripMenuItem
-            // 
-            this.departamento1ToolStripMenuItem.Name = "departamento1ToolStripMenuItem";
-            this.departamento1ToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
-            this.departamento1ToolStripMenuItem.Text = "Departamento1";
-            // 
-            // departamento2ToolStripMenuItem
-            // 
-            this.departamento2ToolStripMenuItem.Name = "departamento2ToolStripMenuItem";
-            this.departamento2ToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
-            this.departamento2ToolStripMenuItem.Text = "Departamento2";
             // 
             // opcionesToolStripMenuItem
             // 
@@ -147,7 +103,7 @@
             // administrarPerfilToolStripMenuItem
             // 
             this.administrarPerfilToolStripMenuItem.Name = "administrarPerfilToolStripMenuItem";
-            this.administrarPerfilToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
+            this.administrarPerfilToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.administrarPerfilToolStripMenuItem.Text = "Administrar perfil";
             this.administrarPerfilToolStripMenuItem.Click += new System.EventHandler(this.administrarPerfilToolStripMenuItem_Click);
             // 
@@ -179,18 +135,19 @@
             // 
             // dGViewDatos
             // 
-            this.dGViewDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dGViewDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dGViewDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dGViewDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGViewDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Horainicio,
+            this.CodigoMaquina,
             this.HoraFin,
             this.Tiempo});
             this.dGViewDatos.Location = new System.Drawing.Point(0, 187);
             this.dGViewDatos.Name = "dGViewDatos";
             this.dGViewDatos.ReadOnly = true;
             this.dGViewDatos.RowTemplate.Height = 24;
-            this.dGViewDatos.Size = new System.Drawing.Size(322, 48);
+            this.dGViewDatos.Size = new System.Drawing.Size(462, 208);
             this.dGViewDatos.TabIndex = 14;
             // 
             // Horainicio
@@ -198,21 +155,24 @@
             this.Horainicio.HeaderText = "Hora Inicio";
             this.Horainicio.Name = "Horainicio";
             this.Horainicio.ReadOnly = true;
-            this.Horainicio.Width = 104;
+            // 
+            // CodigoMaquina
+            // 
+            this.CodigoMaquina.HeaderText = "Codigo de Maquina";
+            this.CodigoMaquina.Name = "CodigoMaquina";
+            this.CodigoMaquina.ReadOnly = true;
             // 
             // HoraFin
             // 
             this.HoraFin.HeaderText = "Hora Fin";
             this.HoraFin.Name = "HoraFin";
             this.HoraFin.ReadOnly = true;
-            this.HoraFin.Width = 91;
             // 
             // Tiempo
             // 
             this.Tiempo.HeaderText = "Tiempo";
             this.Tiempo.Name = "Tiempo";
             this.Tiempo.ReadOnly = true;
-            this.Tiempo.Width = 84;
             // 
             // txtCodigo
             // 
@@ -274,15 +234,65 @@
             this.lblNombre.TabIndex = 0;
             this.lblNombre.Text = "Nombre";
             // 
+            // cbxDepartamento
+            // 
+            this.cbxDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxDepartamento.FormattingEnabled = true;
+            this.cbxDepartamento.Location = new System.Drawing.Point(435, 45);
+            this.cbxDepartamento.Name = "cbxDepartamento";
+            this.cbxDepartamento.Size = new System.Drawing.Size(121, 24);
+            this.cbxDepartamento.TabIndex = 5;
+            this.cbxDepartamento.SelectedIndexChanged += new System.EventHandler(this.cbxDepartamento_SelectedIndexChanged);
+            // 
+            // lblmaquina
+            // 
+            this.lblmaquina.AutoSize = true;
+            this.lblmaquina.Location = new System.Drawing.Point(343, 45);
+            this.lblmaquina.Name = "lblmaquina";
+            this.lblmaquina.Size = new System.Drawing.Size(86, 17);
+            this.lblmaquina.TabIndex = 6;
+            this.lblmaquina.Text = "Codigo Dep:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(120, 17);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Tiempo Estandar:";
+            // 
+            // txtTiempoestandar
+            // 
+            this.txtTiempoestandar.Enabled = false;
+            this.txtTiempoestandar.Location = new System.Drawing.Point(139, 44);
+            this.txtTiempoestandar.Name = "txtTiempoestandar";
+            this.txtTiempoestandar.Size = new System.Drawing.Size(100, 22);
+            this.txtTiempoestandar.TabIndex = 8;
+            // 
+            // lblOscilacion
+            // 
+            this.lblOscilacion.AutoSize = true;
+            this.lblOscilacion.Location = new System.Drawing.Point(252, 44);
+            this.lblOscilacion.Name = "lblOscilacion";
+            this.lblOscilacion.Size = new System.Drawing.Size(0, 17);
+            this.lblOscilacion.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 541);
+            this.Controls.Add(this.lblOscilacion);
+            this.Controls.Add(this.txtTiempoestandar);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblmaquina);
+            this.Controls.Add(this.cbxDepartamento);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btninfo);
             this.Controls.Add(this.listEmpleados);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Departamentos";
@@ -304,10 +314,6 @@
         private System.Windows.Forms.ListBox listEmpleados;
         private System.Windows.Forms.Button btninfo;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem departamentosToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblCodigo;
@@ -322,10 +328,14 @@
         private System.Windows.Forms.Label lblRegistro;
         private System.Windows.Forms.DataGridView dGViewDatos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Horainicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoMaquina;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoraFin;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tiempo;
-        private System.Windows.Forms.ToolStripMenuItem departamento1ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem departamento2ToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cbxDepartamento;
+        private System.Windows.Forms.Label lblmaquina;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtTiempoestandar;
+        private System.Windows.Forms.Label lblOscilacion;
     }
 }
 
