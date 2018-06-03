@@ -17,7 +17,7 @@ namespace proyectoestudio
         {
             InitializeComponent();
         }
-
+        
         private void FormLogin_Load(object sender, EventArgs e)
         {
             SqlConnection conexion = new SqlConnection();

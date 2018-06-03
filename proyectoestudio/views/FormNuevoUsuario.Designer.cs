@@ -64,7 +64,7 @@
             this.lblNombreU.Location = new System.Drawing.Point(154, 14);
             this.lblNombreU.Name = "lblNombreU";
             this.lblNombreU.Size = new System.Drawing.Size(66, 17);
-            this.lblNombreU.TabIndex = 12;
+            this.lblNombreU.TabIndex = 1;
             this.lblNombreU.Text = "Nombre :";
             // 
             // lblApellidosU
@@ -73,7 +73,7 @@
             this.lblApellidosU.Location = new System.Drawing.Point(154, 69);
             this.lblApellidosU.Name = "lblApellidosU";
             this.lblApellidosU.Size = new System.Drawing.Size(73, 17);
-            this.lblApellidosU.TabIndex = 11;
+            this.lblApellidosU.TabIndex = 3;
             this.lblApellidosU.Text = "Apellidos :";
             // 
             // lblCodigoU
@@ -82,7 +82,7 @@
             this.lblCodigoU.Location = new System.Drawing.Point(154, 164);
             this.lblCodigoU.Name = "lblCodigoU";
             this.lblCodigoU.Size = new System.Drawing.Size(56, 17);
-            this.lblCodigoU.TabIndex = 10;
+            this.lblCodigoU.TabIndex = 7;
             this.lblCodigoU.Text = "Codigo:";
             // 
             // txtApellidosU
@@ -90,7 +90,7 @@
             this.txtApellidosU.Location = new System.Drawing.Point(154, 93);
             this.txtApellidosU.Name = "txtApellidosU";
             this.txtApellidosU.Size = new System.Drawing.Size(180, 22);
-            this.txtApellidosU.TabIndex = 9;
+            this.txtApellidosU.TabIndex = 4;
             // 
             // txtCodigoU
             // 
@@ -104,7 +104,7 @@
             this.txtNombreU.Location = new System.Drawing.Point(154, 40);
             this.txtNombreU.Name = "txtNombreU";
             this.txtNombreU.Size = new System.Drawing.Size(100, 22);
-            this.txtNombreU.TabIndex = 7;
+            this.txtNombreU.TabIndex = 2;
             this.txtNombreU.TextChanged += new System.EventHandler(this.txtNombreU_TextChanged);
             // 
             // comboBox1
@@ -114,7 +114,7 @@
             this.comboBox1.Location = new System.Drawing.Point(368, 50);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 13;
+            this.comboBox1.TabIndex = 9;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // lblPermisos
@@ -131,7 +131,7 @@
             this.btnAñadirU.Location = new System.Drawing.Point(208, 212);
             this.btnAñadirU.Name = "btnAñadirU";
             this.btnAñadirU.Size = new System.Drawing.Size(176, 49);
-            this.btnAñadirU.TabIndex = 15;
+            this.btnAñadirU.TabIndex = 14;
             this.btnAñadirU.Text = "Añadir";
             this.btnAñadirU.UseVisualStyleBackColor = true;
             this.btnAñadirU.Click += new System.EventHandler(this.btnAñadirU_Click);
@@ -142,7 +142,7 @@
             this.labelPass2.Location = new System.Drawing.Point(387, 147);
             this.labelPass2.Name = "labelPass2";
             this.labelPass2.Size = new System.Drawing.Size(130, 17);
-            this.labelPass2.TabIndex = 21;
+            this.labelPass2.TabIndex = 12;
             this.labelPass2.Text = "Repita Contraseña:";
             // 
             // txtContraseña2
@@ -150,7 +150,7 @@
             this.txtContraseña2.Location = new System.Drawing.Point(387, 173);
             this.txtContraseña2.Name = "txtContraseña2";
             this.txtContraseña2.Size = new System.Drawing.Size(100, 22);
-            this.txtContraseña2.TabIndex = 20;
+            this.txtContraseña2.TabIndex = 13;
             // 
             // labelPass
             // 
@@ -158,7 +158,7 @@
             this.labelPass.Location = new System.Drawing.Point(387, 96);
             this.labelPass.Name = "labelPass";
             this.labelPass.Size = new System.Drawing.Size(130, 17);
-            this.labelPass.TabIndex = 19;
+            this.labelPass.TabIndex = 10;
             this.labelPass.Text = "Nueva Contraseña:";
             // 
             // txtContraseña
@@ -166,14 +166,14 @@
             this.txtContraseña.Location = new System.Drawing.Point(387, 122);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(100, 22);
-            this.txtContraseña.TabIndex = 18;
+            this.txtContraseña.TabIndex = 11;
             // 
             // btnimage
             // 
             this.btnimage.Location = new System.Drawing.Point(13, 147);
             this.btnimage.Name = "btnimage";
             this.btnimage.Size = new System.Drawing.Size(115, 48);
-            this.btnimage.TabIndex = 22;
+            this.btnimage.TabIndex = 0;
             this.btnimage.Text = "Añadir Imagen";
             this.btnimage.UseVisualStyleBackColor = true;
             this.btnimage.Click += new System.EventHandler(this.btnimage_Click);
@@ -188,7 +188,7 @@
             this.lblUsuario.Location = new System.Drawing.Point(154, 118);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(57, 17);
-            this.lblUsuario.TabIndex = 23;
+            this.lblUsuario.TabIndex = 5;
             this.lblUsuario.Text = "Usuario";
             // 
             // txtUsuario
@@ -196,7 +196,7 @@
             this.txtUsuario.Location = new System.Drawing.Point(157, 139);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(100, 22);
-            this.txtUsuario.TabIndex = 24;
+            this.txtUsuario.TabIndex = 6;
             // 
             // FormNuevoUsuario
             // 

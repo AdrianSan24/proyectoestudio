@@ -14,14 +14,22 @@ namespace proyectoestudio
     public partial class FormNuevoempleado : Form
     {
         Conexiones conexion;
-        Operario nuevoOperario;
+        Operario nuevoOperario;//operario que se añadira
         public FormNuevoempleado(Conexiones conexion)
         {
             InitializeComponent();
             this.conexion = conexion;
             nuevoOperario = new Operario();
-        }
+            if (conexion.comprobarConexion())
+            {
 
+            }
+            else
+            {
+                MessageBox.Show("no esta conectado a la base de de datos por lo que cualquier cambio que haga no se vera reflejado");
+            }
+        }
+        // se añade se comprueba que no estan vacios los campos esenciales y se añade el operario si todoes correcto
         private void btnAñadirE_Click(object sender, EventArgs e)
         {
             bool nombreOK = true;
@@ -59,7 +67,7 @@ namespace proyectoestudio
                         }
                         else
                         {
-                            MessageBox.Show("Error", " Error en la creacion del Usuario");
+                            MessageBox.Show("Error", " Error en la creacion del Operario en la base de datos",MessageBoxButtons.OK,MessageBoxIcon.Error);
                         }
                     }
                     else
@@ -78,10 +86,10 @@ namespace proyectoestudio
             }
             else
             {
-                MessageBox.Show("error ", "algun campo vacio ");
+                MessageBox.Show( "alguno de los  campos esta vacio vacio ", "error ");
             }
         }
-
+        //abre un cuadro para cargar una imagen de perfil se lanza cuando se pincha encima de la imagen
         private void btnimage_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)

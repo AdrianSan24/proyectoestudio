@@ -16,7 +16,7 @@ namespace proyectoestudio.views
         public FormInfoOperario(Operario op)
         {
             InitializeComponent();
-           
+           //se cargan todos los datos de ese usuario
                 if (op.foto == null)
                 {
 
@@ -29,8 +29,18 @@ namespace proyectoestudio.views
             txtCodigo.Text = op.Codigo;
             for (int i = 0; i < op.codigoParada.Count; i++)
             {
-                dGViewDatosempleado.Rows.Add(op.horasInicio[i], op.codigoParada[i], op.horasFin[i], op.tiempoParada[i]);
+                dGViewDatosempleado.Rows.Add(op.horasInicio[i],op.horasFin[i], op.tiempoParada[i], op.codigoParada[i], op.motivos[i], op.descripcion[i]);
             }
+        }
+
+        private void FormInfoOperario_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dGViewDatosempleado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

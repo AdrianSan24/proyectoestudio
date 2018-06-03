@@ -8,8 +8,9 @@ namespace proyectoestudio.clases
 {
     public class EstandarMaquina
     {
-        string codigomaquina;
-        string tiempoestandar;
+        //clase para recoger los estandares
+        string codigomaquina;//codigo 
+        string tiempoestandar;//tiempo
         int oscilacion;
         public string Codigomaquina { set; get; }
         public string Tiempoestandar { set; get; }

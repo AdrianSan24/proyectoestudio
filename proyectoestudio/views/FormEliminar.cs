@@ -13,20 +13,28 @@ namespace proyectoestudio.images
 {
     public partial class FormEliminar : Form
     {
-        Conexiones con;
-        bool user;
+        Conexiones con;//conexion
+        bool user;//usuario que esta en la sesion
         public FormEliminar(bool usuario,Conexiones conexion)
         {
             InitializeComponent();
             con = conexion;
             user = usuario;
-        }
+            if (conexion.comprobarConexion())
+            {
 
+            }
+            else
+            {
+                MessageBox.Show("no esta conectado a la base de de datos por lo que cualquier cambio que haga no se vera reflejado");
+            }
+        }
+        //se envia el codigo del textbox para eliminar ese ususario o empleado
         private void button2_Click(object sender, EventArgs e)
         {
             if (con.eliminar(user, textBox1.Text))
             {
-                MessageBox.Show("Personal eliminnado", "el personal ha sido eliminado con exito");
+               
             }
             else
             {

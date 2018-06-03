@@ -34,6 +34,7 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.btnIniciar = new System.Windows.Forms.Button();
+            this.chk = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -51,7 +52,7 @@
             this.lblContraseña.Location = new System.Drawing.Point(34, 80);
             this.lblContraseña.Name = "lblContraseña";
             this.lblContraseña.Size = new System.Drawing.Size(85, 17);
-            this.lblContraseña.TabIndex = 1;
+            this.lblContraseña.TabIndex = 2;
             this.lblContraseña.Text = "Contraseña:";
             // 
             // txtUsuario
@@ -59,7 +60,7 @@
             this.txtUsuario.Location = new System.Drawing.Point(37, 45);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(176, 22);
-            this.txtUsuario.TabIndex = 2;
+            this.txtUsuario.TabIndex = 1;
             // 
             // txtPass
             // 
@@ -73,19 +74,32 @@
             // btnIniciar
             // 
             this.btnIniciar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnIniciar.Location = new System.Drawing.Point(37, 140);
+            this.btnIniciar.Location = new System.Drawing.Point(37, 183);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(176, 38);
-            this.btnIniciar.TabIndex = 4;
+            this.btnIniciar.TabIndex = 5;
             this.btnIniciar.Text = "Iniciar sesion";
             this.btnIniciar.UseVisualStyleBackColor = true;
+            // 
+            // chk
+            // 
+            this.chk.AutoSize = true;
+            this.chk.Checked = true;
+            this.chk.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk.Location = new System.Drawing.Point(37, 145);
+            this.chk.Name = "chk";
+            this.chk.Size = new System.Drawing.Size(173, 21);
+            this.chk.TabIndex = 4;
+            this.chk.Text = "Entrar como empleado";
+            this.chk.UseVisualStyleBackColor = true;
             // 
             // FormLogin
             // 
             this.AcceptButton = this.btnIniciar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(263, 190);
+            this.ClientSize = new System.Drawing.Size(263, 233);
+            this.Controls.Add(this.chk);
             this.Controls.Add(this.btnIniciar);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtUsuario);
@@ -95,7 +109,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormLogin";
-            this.Text = "Introducir Usuario";
+            this.Text = "Iniciar Sesion";
             this.Load += new System.EventHandler(this.FormLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -109,5 +123,6 @@
         public System.Windows.Forms.TextBox txtUsuario;
         public System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Button btnIniciar;
+        public System.Windows.Forms.CheckBox chk;
     }
 }

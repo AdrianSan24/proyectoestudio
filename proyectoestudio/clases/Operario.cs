@@ -9,6 +9,7 @@ namespace proyectoestudio.clases
 {
     public class Operario
     {
+        //clase para crear operario
         public Image foto;
         public string rutafoto;
         private string nombre;
@@ -20,6 +21,8 @@ namespace proyectoestudio.clases
         public List<string> horasFin;
         public List<string> tiempoParada;
         public List<string> codigoParada;
+        public List<string> motivos;
+        public List<string> descripcion;
         public string Nombre { get; set; }
         public string Usuario { get; set; }
         public string Contraseña { get; set; }

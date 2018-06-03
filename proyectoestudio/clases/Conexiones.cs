@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace proyectoestudio.clases
 {
     public class Conexiones
     {
-
+        //clase con todo para la base de datos
         MySqlConnection cn;
         MySqlCommand consulta;
 
@@ -18,11 +19,12 @@ namespace proyectoestudio.clases
 
 
         }
-
+        //cierra la conexion
         public void cerrar()
         {
             cn.Close();
         }
+        //abre la conexion
             public bool probarConexion()
         {
 
@@ -50,24 +52,34 @@ namespace proyectoestudio.clases
                 return false;
             }
         }
-
-        public void conseguirhoras(List<string> horasInicio, List<string> horasFin, List<string> tiempos, List<string> codigos, string codempleado)
+        //se consiguen los tiempos hechos y los añade al operario
+        public void conseguirhoras(List<string> horasInicio, List<string> horasFin, List<string> tiempos, List<string> codigos, List<string> motivos, List<string> descripciones, string codempleado)
         {
             try
             {
-                MySqlCommand consulta2 = new MySqlCommand("Select horainicio,horafin,tiempoesperado,codigodemaquina from datos where codigoempleado=" + "'" + codempleado + "'", cn);
+                MySqlCommand consulta2 = new MySqlCommand("Select horainicio,horafin,tiempoesperado,codigodemaquina,Motivo,descripcion from datos where codigoempleado=" + "'" + codempleado + "'", cn);
 
-            MySqlDataReader lector2 = consulta2.ExecuteReader();
+            MySqlDataReader lector2 = consulta2.ExecuteReader();//se ejecuta la consulta
             while (lector2.Read())
             {
-
-                string horainicio = lector2.GetValue(0).ToString();
+//se lee la consulta
+                string horainicio = lector2.GetString("horainicio");
                 horasInicio.Add(horainicio);
-                string horafin = lector2.GetValue(1).ToString();
+                string horafin = lector2.GetString("horafin");
                 horasFin.Add(horafin);
-                string tiempo = lector2.GetValue(2).ToString();
+                string tiempo = lector2.GetString("tiempoesperado");
                 tiempos.Add(tiempo);
                 codigos.Add(lector2.GetString("codigodemaquina"));
+                    motivos.Add(lector2.GetString("Motivo"));
+                    if (lector2.GetString("descripcion") == null || lector2.GetString("descripcion") == "NULL")
+                    {
+                        descripciones.Add("");
+                    }
+                    else
+                    {
+                        descripciones.Add(lector2.GetString("descripcion"));
+                    }
+                    
             }
             lector2.Close();
         }
@@ -76,45 +88,59 @@ namespace proyectoestudio.clases
 
             }
 }
+        //consigue los operarios de la base de datos
         public List<Operario> conseguirOperarios()
         {
 
             List<Operario> ops = new List<Operario>();
-            consulta = new MySqlCommand("SELECT * FROM operarios ", cn);
-            MySqlDataReader lector = consulta.ExecuteReader();
-            while (lector.Read())
+            try
             {
-                Operario operario = new Operario();
-                operario.Codigo = lector.GetString("codigoempleado");
-                operario.Nombre = lector.GetString("Nombre");
-                operario.Apellidos = lector.GetString("Apellidos");
-                operario.rutafoto = lector.GetString("fotoperfil");
-                operario.Usuario = lector.GetString("Usuario");
-                operario.Contraseña = lector.GetString("contrasena");
-                ops.Add(operario);
+                consulta = new MySqlCommand("SELECT * FROM operarios ", cn);
+                MySqlDataReader lector = consulta.ExecuteReader();
 
-            }
-            lector.Close();
+                while (lector.Read())
+                {
+                    //se rellena cada operario
+                    Operario operario = new Operario();
+                    operario.Codigo = lector.GetString("codigoempleado");
+                    operario.Nombre = lector.GetString("Nombre");
+                    operario.Apellidos = lector.GetString("Apellidos");
+                    operario.rutafoto = lector.GetString("fotoperfil");
+                    operario.Usuario = lector.GetString("Usuario");
+                    operario.Contraseña = lector.GetString("contrasena");
+                    ops.Add(operario);
 
-            foreach (Operario op in ops)
+                }
+                lector.Close();
+
+                foreach (Operario op in ops)
+                {
+                    op.horasInicio = new List<string>();
+                    op.horasFin = new List<string>();
+                    op.tiempoParada = new List<string>();
+                    op.codigoParada = new List<string>();
+                    op.descripcion = new List<string>();
+                    op.motivos = new List<string>();
+                    conseguirhoras(op.horasInicio, op.horasFin, op.tiempoParada, op.codigoParada, op.motivos, op.descripcion, op.Codigo);
+                }
+            }catch(MySqlException ex)
             {
-                op.horasInicio = new List<string>();
-                op.horasFin = new List<string>();
-                op.tiempoParada=new List<string>();
-                op.codigoParada = new List<string>();
-                conseguirhoras(op.horasInicio, op.horasFin, op.tiempoParada, op.codigoParada, op.Codigo);
+               
             }
             return ops;
         }
-
+        //consigue todos los ususarios de la BD
         public List<Usuario> conseguirUsuarios()
         {
 
             List<Usuario> users = new List<Usuario>();
-            consulta = new MySqlCommand("SELECT * FROM usuarios2 ", cn);
+            try
+            {
+                consulta = new MySqlCommand("SELECT * FROM usuarios2 ", cn);
             MySqlDataReader lector = consulta.ExecuteReader();
             while (lector.Read())
             {
+                //se rellena cada usuario
                 Usuario user = new Usuario();
                 user.Codigo = lector.GetString("codigousuario");
                 user.Nombre = lector.GetString("Nombre");
@@ -127,9 +153,14 @@ namespace proyectoestudio.clases
 
             }
             lector.Close();
-            
+            }
+            catch (MySqlException ex)
+            {
+
+            }
             return users;
         }
+        //consigue los estandars(tiempo estandar y oscilacion de error) de la smaquinas o departamentos
         public void Conseguirestandar(List<EstandarMaquina> estandares)
         {
             try
@@ -153,6 +184,7 @@ namespace proyectoestudio.clases
 
             }
         }
+        //consigue los codigos
         public void codigos(List<string> codigos)
         {
             consulta = new MySqlCommand("SELECT codigodemaquina FROM datos ", cn);
@@ -163,13 +195,15 @@ namespace proyectoestudio.clases
             }
             lector.Close();
         }
+        //actualiza el usuario  en la BD
         public bool editarUsuario(Usuario user)
         {
             try
             {
-                string sentencia = String.Format("UPDATE `usuarios2` SET `Nombre` = '{0}', `Apellidos` = '{1}',`Usuario` = '{2}',`contrasena` = '{3}',`fotoperfil` = '{4}', WHERE `usuarios2`.`codigousuario` = {5};", user.Nombre, user.Apellidos, user.User,user.Contraseña, user.Rutafoto, user.Codigo);
+                
+                string sentencia = String.Format("UPDATE `usuarios2` SET `Nombre` = '{0}', `Apellidos` = '{1}',`Usuario` = '{2}',`contrasena` = '{3}',`fotoperfil` = '{4}' WHERE `usuarios2`.`codigousuario` = '{5}'", user.Nombre, user.Apellidos, user.User,user.Contraseña, user.Rutafoto, user.Codigo);
                 MySqlCommand consulta2 = new MySqlCommand(sentencia, cn);
-
+                consulta2.ExecuteNonQuery();
                 return true;
             }
             catch (MySqlException E)
@@ -177,6 +211,7 @@ namespace proyectoestudio.clases
                 return false;
             }
         }
+        //crea un usuario  en la BD
         public bool crearUsuario(Usuario user)
         {
             try
@@ -199,6 +234,7 @@ namespace proyectoestudio.clases
                 return false;
             }
         }
+        //crea un operario en la BD
         public bool crearOperario(Operario op)
         {
             try
@@ -206,11 +242,12 @@ namespace proyectoestudio.clases
                 string sentencia2;
                 if (op.Foto == null)
                 {
-                    sentencia2 = String.Format(" INSERT INTO operarios ( COD,Nombre, Apellidos, Usuario, contrasena, codigoempleado) VALUES ( NULL,'{0}', '{1}', '{2}', '{3}', {4});", op.Nombre, op.Apellidos, op.Usuario, op.Contraseña, op.Codigo);
+                    
+                    sentencia2 = String.Format(" INSERT INTO operarios ( codigo,Nombre, Apellidos, Usuario, contrasena, codigoempleado,fotoperfil) VALUES ( NULL,'{0}', '{1}', '{2}', '{3}', '{4}','')", op.Nombre, op.Apellidos, op.Usuario, op.Contraseña, op.Codigo);
                 }
                 else
                 {
-                    sentencia2 = String.Format(" INSERT INTO operarios ( COD,Nombre, Apellidos, Usuario, contrasena, fotoperfil, codigoempleado) VALUES ( NULL,'{0}', '{1}', '{2}', '{3}', {4}, '{5}');", op.Nombre, op.Apellidos, op.Usuario, op.Contraseña, op.Foto, op.Codigo);
+                    sentencia2 = String.Format(" INSERT INTO operarios ( codigo,Nombre, Apellidos, Usuario, contrasena, fotoperfil, codigoempleado) VALUES ( NULL,'{0}', '{1}', '{2}', '{3}', {4}, '{5}')", op.Nombre, op.Apellidos, op.Usuario, op.Contraseña, op.Foto, op.Codigo);
                 }
                 MySqlCommand consulta2 = new MySqlCommand(sentencia2, cn);
                 consulta2.ExecuteNonQuery();
@@ -221,24 +258,166 @@ namespace proyectoestudio.clases
                 return false;
             }
         }
+        //elimina el empleado o usuario dependiendo del boleano
         public bool eliminar(bool usuario ,string codigo)
+        {
+            MySqlCommand consulta2= new MySqlCommand();
+            try
+            {
+                string nombre="",apellidos="";
+                string sentencia2;
+                if (usuario)
+                {
+                   
+                        sentencia2 = String.Format("DELETE FROM `operarios` WHERE `operarios`.`codigousuario`="+ "'" + codigo+ "'" );
+                }
+                else
+                {
+                   
+                    sentencia2 = String.Format("DELETE FROM `operarios` WHERE `operarios`.`codigoempleado`=" +"'"+ codigo+"'");
+                }
+               
+               if( MessageBox.Show("Esta seguro que desea eliminar a  " + codigo, "Eliminar",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning)==DialogResult.OK){
+                    MySqlCommand consulta3 = new MySqlCommand(sentencia2, cn);
+                    consulta3.ExecuteNonQuery();
+                    MessageBox.Show("Personal eliminnado", "el personal ha sido eliminado con exito");
+                }
+              
+                return true;
+            }
+            catch (MySqlException E)
+            {
+                return false;
+            }
+        }
+        public bool Añadirdatos(Operario op,string tiempoParada,string InicioParada,string Finparada,string codigoMaquina,string motivo,string descripcion)
         {
             try
             {
                 string sentencia2;
-                if (usuario)
+                if (descripcion=="")
                 {
-                    sentencia2 = String.Format("DELETE FROM `operarios` WHERE `operarios`.`codigousuario`="+ "'" + codigo+ "'" );
+
+                    sentencia2 = String.Format(" INSERT INTO `datos` (`codigo`,`horainicio`, `horafin`, `tiempoesperado`, `codigodemaquina`, `codigoempleado`, `Motivo`,`descripcion`, `created_at`) VALUES (NULL,'{0}', '{1}', '{2}', '{3}', '{4}', '{5}','{6}', CURRENT_TIMESTAMP)", InicioParada, Finparada, tiempoParada, codigoMaquina, op.Codigo, motivo, "");
                 }
                 else
                 {
-                    sentencia2 = String.Format("DELETE FROM `operarios` WHERE `operarios`.`codigoempleado`=" +"'"+ codigo+"'");
+                    sentencia2 = String.Format(" INSERT INTO `datos` (`codigo`,`horainicio`, `horafin`, `tiempoesperado`, `codigodemaquina`, `codigoempleado`, `Motivo`,`descripcion`, `created_at`) VALUES (NULL,'{0}', '{1}', '{2}', '{3}', '{4}', '{5}','{6}', CURRENT_TIMESTAMP)", InicioParada, Finparada, tiempoParada, codigoMaquina, op.Codigo, motivo,descripcion);
                 }
                 MySqlCommand consulta2 = new MySqlCommand(sentencia2, cn);
                 consulta2.ExecuteNonQuery();
                 return true;
             }
             catch (MySqlException E)
+            {
+                return false;
+            }
+        }
+        public bool AñadirAtascos(Operario op, string tiempoAtasco, string InicioAtasco, string FinAtasco, string codigoMaquina)
+        {
+            try
+            {
+                string sentencia2;
+                
+
+                    sentencia2 = String.Format("INSERT INTO `atascos` (`Cod`, `horainicio`, `horafin`, `tiempo`,`created_at`) VALUES(NULL, '{0}', '{1}', '{2}', CURRENT_TIMESTAMP) ", InicioAtasco, FinAtasco, tiempoAtasco, codigoMaquina, op.Codigo);
+                
+                MySqlCommand consulta2 = new MySqlCommand(sentencia2, cn);
+                consulta2.ExecuteNonQuery();
+                return true;
+            }
+            catch (MySqlException E)
+            {
+                return false;
+            }
+        }
+        public bool AñadirTiempoTotal(string Iniciototal,string  FinTotal,string  tiempoTotal,string codigodetrabajo,string codigoEmpleado, int bandejasmalas)
+        {
+            try
+            {
+                string sentencia2;
+
+
+                sentencia2 = String.Format("INSERT INTO `trabajomaquina` (`horainicio`, `horafinal`, `codigomaquina`, `tiempotranscurrido`, `Cod`, `Bandejasmalas`, `created_at`, `codigoempleado`) VALUES ('{0}', '{1}', '{2}', '{3}', NULL, {4}, CURRENT_TIMESTAMP, '{5}') ", Iniciototal, FinTotal,codigodetrabajo , tiempoTotal,bandejasmalas, codigoEmpleado);
+
+                MySqlCommand consulta2 = new MySqlCommand(sentencia2, cn);
+                consulta2.ExecuteNonQuery();
+                return true;
+            }
+            catch (MySqlException E)
+            {
+                return false;
+            }
+        }
+        public bool  cogercodigos(List<string> codes)
+        {
+            
+            try
+            {
+                MySqlCommand consulta2 = new MySqlCommand("Select codigomaquina from maquina ", cn);
+
+                MySqlDataReader lector2 = consulta2.ExecuteReader();
+                while (lector2.Read())
+                {
+
+                    codes.Add(lector2.GetString("codigomaquina"));
+                   
+                }
+                lector2.Close();
+                return true;
+            }
+            catch (MySqlException E)
+            {
+                return false;
+            }
+        }
+        public List<TrabajoTotal> cogerTiemposMaquina()
+        {
+            List<TrabajoTotal> totalesMaquina = new List<TrabajoTotal>();
+            try
+            {
+                MySqlCommand consulta2 = new MySqlCommand("Select * from trabajomaquina ", cn);
+
+                MySqlDataReader lector2 = consulta2.ExecuteReader();
+                while (lector2.Read())
+                {
+                    TrabajoTotal trabajo = new TrabajoTotal();
+                    trabajo.Bandejas=lector2.GetInt32("Bandejasmalas");
+                    trabajo.CodigoEmpleado = lector2.GetString("codigoempleado");
+                    trabajo.Codigomaquina = lector2.GetString("codigomaquina");
+                    trabajo.Horafin = lector2.GetString("horafinal");
+                    trabajo.Horainicio = lector2.GetString("horainicio");
+                    trabajo.Tiempo = lector2.GetString("tiempotranscurrido");
+                    DateTime dia = lector2.GetDateTime("created_at");
+                    trabajo.Fecha = dia.Date.ToShortDateString();
+                    totalesMaquina.Add(trabajo);
+                }
+                lector2.Close();
+                return totalesMaquina;
+            }
+            catch (MySqlException E)
+            {
+                return null;
+            }
+        }
+        public bool comprobarConexion()
+        {
+            try
+            {
+                if (cn.Ping())
+                {
+                    return true;
+                }
+                //if (cn.State == System.Data.ConnectionState.Open)
+                //{
+                //    return true;
+                //}
+
+                else
+                {
+                    return false;
+                }
+            }catch(MySqlException e)
             {
                 return false;
             }

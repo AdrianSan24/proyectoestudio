@@ -76,7 +76,7 @@
             this.txtCodigoU.Location = new System.Drawing.Point(200, 144);
             this.txtCodigoU.Name = "txtCodigoU";
             this.txtCodigoU.Size = new System.Drawing.Size(100, 22);
-            this.txtCodigoU.TabIndex = 2;
+            this.txtCodigoU.TabIndex = 5;
             // 
             // txtApellidosU
             // 
@@ -101,7 +101,7 @@
             this.lblApellidosU.Location = new System.Drawing.Point(200, 68);
             this.lblApellidosU.Name = "lblApellidosU";
             this.lblApellidosU.Size = new System.Drawing.Size(73, 17);
-            this.lblApellidosU.TabIndex = 5;
+            this.lblApellidosU.TabIndex = 2;
             this.lblApellidosU.Text = "Apellidos :";
             // 
             // lblNombreU
@@ -110,7 +110,7 @@
             this.lblNombreU.Location = new System.Drawing.Point(200, 13);
             this.lblNombreU.Name = "lblNombreU";
             this.lblNombreU.Size = new System.Drawing.Size(66, 17);
-            this.lblNombreU.TabIndex = 6;
+            this.lblNombreU.TabIndex = 0;
             this.lblNombreU.Text = "Nombre :";
             // 
             // btnAñadirEmpleado
@@ -118,7 +118,7 @@
             this.btnAñadirEmpleado.Location = new System.Drawing.Point(12, 261);
             this.btnAñadirEmpleado.Name = "btnAñadirEmpleado";
             this.btnAñadirEmpleado.Size = new System.Drawing.Size(164, 39);
-            this.btnAñadirEmpleado.TabIndex = 9;
+            this.btnAñadirEmpleado.TabIndex = 13;
             this.btnAñadirEmpleado.Text = "Añadir Empleado";
             this.btnAñadirEmpleado.UseVisualStyleBackColor = true;
             this.btnAñadirEmpleado.Click += new System.EventHandler(this.btnAñadirEmpleado_Click);
@@ -128,7 +128,7 @@
             this.btnAñadirUsuario.Location = new System.Drawing.Point(193, 262);
             this.btnAñadirUsuario.Name = "btnAñadirUsuario";
             this.btnAñadirUsuario.Size = new System.Drawing.Size(187, 38);
-            this.btnAñadirUsuario.TabIndex = 10;
+            this.btnAñadirUsuario.TabIndex = 15;
             this.btnAñadirUsuario.Text = "Añadir Usuario";
             this.btnAñadirUsuario.UseVisualStyleBackColor = true;
             this.btnAñadirUsuario.Visible = false;
@@ -139,7 +139,7 @@
             this.btnEditarU.Location = new System.Drawing.Point(397, 305);
             this.btnEditarU.Name = "btnEditarU";
             this.btnEditarU.Size = new System.Drawing.Size(170, 39);
-            this.btnEditarU.TabIndex = 11;
+            this.btnEditarU.TabIndex = 17;
             this.btnEditarU.Text = "Editar Perfil";
             this.btnEditarU.UseVisualStyleBackColor = true;
             this.btnEditarU.Click += new System.EventHandler(this.btnEditarU_Click);
@@ -150,7 +150,7 @@
             this.lblUsuario.Location = new System.Drawing.Point(332, 13);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(65, 17);
-            this.lblUsuario.TabIndex = 13;
+            this.lblUsuario.TabIndex = 6;
             this.lblUsuario.Text = "Usuario :";
             // 
             // txtUsuario
@@ -159,51 +159,51 @@
             this.txtUsuario.Location = new System.Drawing.Point(332, 39);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(100, 22);
-            this.txtUsuario.TabIndex = 12;
+            this.txtUsuario.TabIndex = 7;
             // 
             // labelPass2
             // 
             this.labelPass2.AutoSize = true;
-            this.labelPass2.Location = new System.Drawing.Point(573, 194);
+            this.labelPass2.Location = new System.Drawing.Point(535, 90);
             this.labelPass2.Name = "labelPass2";
             this.labelPass2.Size = new System.Drawing.Size(130, 17);
-            this.labelPass2.TabIndex = 21;
+            this.labelPass2.TabIndex = 10;
             this.labelPass2.Text = "Repita Contraseña:";
             this.labelPass2.Visible = false;
             // 
             // txtcontrasena2
             // 
-            this.txtcontrasena2.Location = new System.Drawing.Point(576, 226);
+            this.txtcontrasena2.Location = new System.Drawing.Point(538, 122);
             this.txtcontrasena2.Name = "txtcontrasena2";
             this.txtcontrasena2.Size = new System.Drawing.Size(100, 22);
-            this.txtcontrasena2.TabIndex = 20;
+            this.txtcontrasena2.TabIndex = 11;
             this.txtcontrasena2.Visible = false;
             // 
             // labelPass
             // 
             this.labelPass.AutoSize = true;
-            this.labelPass.Location = new System.Drawing.Point(573, 126);
+            this.labelPass.Location = new System.Drawing.Point(535, 22);
             this.labelPass.Name = "labelPass";
             this.labelPass.Size = new System.Drawing.Size(130, 17);
-            this.labelPass.TabIndex = 19;
+            this.labelPass.TabIndex = 8;
             this.labelPass.Text = "Nueva Contraseña:";
             this.labelPass.Visible = false;
             // 
             // txtcontrasena
             // 
-            this.txtcontrasena.Location = new System.Drawing.Point(576, 156);
+            this.txtcontrasena.Location = new System.Drawing.Point(538, 52);
             this.txtcontrasena.Name = "txtcontrasena";
             this.txtcontrasena.Size = new System.Drawing.Size(100, 22);
-            this.txtcontrasena.TabIndex = 18;
+            this.txtcontrasena.TabIndex = 9;
             this.txtcontrasena.UseSystemPasswordChar = true;
             this.txtcontrasena.Visible = false;
             // 
             // btnGuardarperfil
             // 
-            this.btnGuardarperfil.Location = new System.Drawing.Point(597, 39);
+            this.btnGuardarperfil.Location = new System.Drawing.Point(538, 183);
             this.btnGuardarperfil.Name = "btnGuardarperfil";
             this.btnGuardarperfil.Size = new System.Drawing.Size(153, 46);
-            this.btnGuardarperfil.TabIndex = 22;
+            this.btnGuardarperfil.TabIndex = 12;
             this.btnGuardarperfil.Text = "Guardar perfil";
             this.btnGuardarperfil.UseVisualStyleBackColor = true;
             this.btnGuardarperfil.Visible = false;
@@ -218,7 +218,7 @@
             this.btnEliminarOP.Location = new System.Drawing.Point(13, 306);
             this.btnEliminarOP.Name = "btnEliminarOP";
             this.btnEliminarOP.Size = new System.Drawing.Size(163, 40);
-            this.btnEliminarOP.TabIndex = 23;
+            this.btnEliminarOP.TabIndex = 14;
             this.btnEliminarOP.Text = "Eliminar Empleado";
             this.btnEliminarOP.UseVisualStyleBackColor = true;
             this.btnEliminarOP.Click += new System.EventHandler(this.btnEliminarOP_Click);
@@ -228,7 +228,7 @@
             this.btnEliminarU.Location = new System.Drawing.Point(193, 305);
             this.btnEliminarU.Name = "btnEliminarU";
             this.btnEliminarU.Size = new System.Drawing.Size(187, 41);
-            this.btnEliminarU.TabIndex = 24;
+            this.btnEliminarU.TabIndex = 16;
             this.btnEliminarU.Text = "Eliminar Usuario";
             this.btnEliminarU.UseVisualStyleBackColor = true;
             this.btnEliminarU.Visible = false;

@@ -9,6 +9,7 @@ namespace proyectoestudio.clases
 {
     public class Usuario
     {
+        //clase para crear operario
         public Image foto;
         private string rutafoto;
         private bool administrador;
