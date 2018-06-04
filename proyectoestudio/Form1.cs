@@ -281,8 +281,14 @@ namespace proyectoestudio
         private void btnTiemposMaquina_Click(object sender, EventArgs e)
         {
             FormMaquinaDatos datosmaquina = new FormMaquinaDatos(conexion);
-            datosmaquina.ShowDialog();
-            operarios = conexion.conseguirOperarios();
+            if (conexion.comprobarConexion())
+            {
+                datosmaquina.ShowDialog();
+            }
+            if (conexion.comprobarConexion())
+            {
+                operarios = conexion.conseguirOperarios();
+            }
             listEmpleados.Items.Clear();
             foreach (Operario op in operarios)
             {

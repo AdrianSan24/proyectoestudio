@@ -95,34 +95,36 @@ namespace proyectoestudio.clases
             List<Operario> ops = new List<Operario>();
             try
             {
-                consulta = new MySqlCommand("SELECT * FROM operarios ", cn);
-                MySqlDataReader lector = consulta.ExecuteReader();
+                
+                    consulta = new MySqlCommand("SELECT * FROM operarios ", cn);
+                    MySqlDataReader lector = consulta.ExecuteReader();
 
-                while (lector.Read())
-                {
-                    //se rellena cada operario
-                    Operario operario = new Operario();
-                    operario.Codigo = lector.GetString("codigoempleado");
-                    operario.Nombre = lector.GetString("Nombre");
-                    operario.Apellidos = lector.GetString("Apellidos");
-                    operario.rutafoto = lector.GetString("fotoperfil");
-                    operario.Usuario = lector.GetString("Usuario");
-                    operario.Contraseña = lector.GetString("contrasena");
-                    ops.Add(operario);
+                    while (lector.Read())
+                    {
+                        //se rellena cada operario
+                        Operario operario = new Operario();
+                        operario.Codigo = lector.GetString("codigoempleado");
+                        operario.Nombre = lector.GetString("Nombre");
+                        operario.Apellidos = lector.GetString("Apellidos");
+                        operario.rutafoto = lector.GetString("fotoperfil");
+                        operario.Usuario = lector.GetString("Usuario");
+                        operario.Contraseña = lector.GetString("contrasena");
+                        ops.Add(operario);
 
-                }
-                lector.Close();
+                    }
+                    lector.Close();
 
-                foreach (Operario op in ops)
-                {
-                    op.horasInicio = new List<string>();
-                    op.horasFin = new List<string>();
-                    op.tiempoParada = new List<string>();
-                    op.codigoParada = new List<string>();
-                    op.descripcion = new List<string>();
-                    op.motivos = new List<string>();
-                    conseguirhoras(op.horasInicio, op.horasFin, op.tiempoParada, op.codigoParada, op.motivos, op.descripcion, op.Codigo);
-                }
+                    foreach (Operario op in ops)
+                    {
+                        op.horasInicio = new List<string>();
+                        op.horasFin = new List<string>();
+                        op.tiempoParada = new List<string>();
+                        op.codigoParada = new List<string>();
+                        op.descripcion = new List<string>();
+                        op.motivos = new List<string>();
+                        conseguirhoras(op.horasInicio, op.horasFin, op.tiempoParada, op.codigoParada, op.motivos, op.descripcion, op.Codigo);
+                    }
+                
             }catch(MySqlException ex)
             {
                
