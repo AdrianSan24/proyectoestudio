@@ -390,7 +390,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(201, 68);
             this.button1.TabIndex = 31;
-            this.button1.Text = "Guardar Codigo Maquina y Cambiar";
+            this.button1.Text = "Guardar Codigo  y Cambiar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
