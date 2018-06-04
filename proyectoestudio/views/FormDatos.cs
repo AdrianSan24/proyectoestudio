@@ -179,7 +179,7 @@ namespace proyectoestudio.views
             }
             if (segAtasco < 10)
             {
-                tiempoAtasco += "0" + segAtasco;
+                tiempoAtasco += "0" + segAtasco ;
             }
             else
             {

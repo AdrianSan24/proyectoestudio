@@ -38,12 +38,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblRegistro = new System.Windows.Forms.Label();
             this.dGViewDatos = new System.Windows.Forms.DataGridView();
-            this.Horainicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoraFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tiempo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodigoMaquina = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.motivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.txtApellidos = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -58,6 +52,12 @@
             this.txtTiempoestandar = new System.Windows.Forms.TextBox();
             this.lblOscilacion = new System.Windows.Forms.Label();
             this.btnTiemposMaquina = new System.Windows.Forms.Button();
+            this.Horainicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoraFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tiempo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoMaquina = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.motivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGViewDatos)).BeginInit();
@@ -106,7 +106,7 @@
             // administrarPerfilToolStripMenuItem
             // 
             this.administrarPerfilToolStripMenuItem.Name = "administrarPerfilToolStripMenuItem";
-            this.administrarPerfilToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.administrarPerfilToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
             this.administrarPerfilToolStripMenuItem.Text = "Administrar perfil";
             this.administrarPerfilToolStripMenuItem.Click += new System.EventHandler(this.administrarPerfilToolStripMenuItem_Click);
             // 
@@ -154,42 +154,6 @@
             this.dGViewDatos.RowTemplate.Height = 24;
             this.dGViewDatos.Size = new System.Drawing.Size(875, 208);
             this.dGViewDatos.TabIndex = 13;
-            // 
-            // Horainicio
-            // 
-            this.Horainicio.HeaderText = "Hora Inicio";
-            this.Horainicio.Name = "Horainicio";
-            this.Horainicio.ReadOnly = true;
-            // 
-            // HoraFin
-            // 
-            this.HoraFin.HeaderText = "Hora Fin";
-            this.HoraFin.Name = "HoraFin";
-            this.HoraFin.ReadOnly = true;
-            // 
-            // Tiempo
-            // 
-            this.Tiempo.HeaderText = "Tiempo";
-            this.Tiempo.Name = "Tiempo";
-            this.Tiempo.ReadOnly = true;
-            // 
-            // CodigoMaquina
-            // 
-            this.CodigoMaquina.HeaderText = "Codigo de Maquina";
-            this.CodigoMaquina.Name = "CodigoMaquina";
-            this.CodigoMaquina.ReadOnly = true;
-            // 
-            // motivo
-            // 
-            this.motivo.HeaderText = "motivo";
-            this.motivo.Name = "motivo";
-            this.motivo.ReadOnly = true;
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "descripcion";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
             // 
             // txtCodigo
             // 
@@ -266,9 +230,9 @@
             this.lblmaquina.AutoSize = true;
             this.lblmaquina.Location = new System.Drawing.Point(343, 45);
             this.lblmaquina.Name = "lblmaquina";
-            this.lblmaquina.Size = new System.Drawing.Size(86, 17);
+            this.lblmaquina.Size = new System.Drawing.Size(56, 17);
             this.lblmaquina.TabIndex = 2;
-            this.lblmaquina.Text = "Codigo Dep:";
+            this.lblmaquina.Text = "Codigo:";
             // 
             // label1
             // 
@@ -305,6 +269,42 @@
             this.btnTiemposMaquina.UseVisualStyleBackColor = true;
             this.btnTiemposMaquina.Click += new System.EventHandler(this.btnTiemposMaquina_Click);
             // 
+            // Horainicio
+            // 
+            this.Horainicio.HeaderText = "Hora Inicio";
+            this.Horainicio.Name = "Horainicio";
+            this.Horainicio.ReadOnly = true;
+            // 
+            // HoraFin
+            // 
+            this.HoraFin.HeaderText = "Hora Fin";
+            this.HoraFin.Name = "HoraFin";
+            this.HoraFin.ReadOnly = true;
+            // 
+            // Tiempo
+            // 
+            this.Tiempo.HeaderText = "Tiempo";
+            this.Tiempo.Name = "Tiempo";
+            this.Tiempo.ReadOnly = true;
+            // 
+            // CodigoMaquina
+            // 
+            this.CodigoMaquina.HeaderText = "Codigo ";
+            this.CodigoMaquina.Name = "CodigoMaquina";
+            this.CodigoMaquina.ReadOnly = true;
+            // 
+            // motivo
+            // 
+            this.motivo.HeaderText = "motivo";
+            this.motivo.Name = "motivo";
+            this.motivo.ReadOnly = true;
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "descripcion";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -323,7 +323,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Departamentos";
+            this.Text = "Empleados";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -360,13 +360,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTiempoestandar;
         private System.Windows.Forms.Label lblOscilacion;
+        private System.Windows.Forms.Button btnTiemposMaquina;
         private System.Windows.Forms.DataGridViewTextBoxColumn Horainicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoraFin;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tiempo;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoMaquina;
         private System.Windows.Forms.DataGridViewTextBoxColumn motivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
-        private System.Windows.Forms.Button btnTiemposMaquina;
     }
 }
 

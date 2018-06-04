@@ -282,6 +282,14 @@ namespace proyectoestudio
         {
             FormMaquinaDatos datosmaquina = new FormMaquinaDatos(conexion);
             datosmaquina.ShowDialog();
+            operarios = conexion.conseguirOperarios();
+            listEmpleados.Items.Clear();
+            foreach (Operario op in operarios)
+            {
+                //se actualiza  la lista
+                listEmpleados.Items.Add(op.Nombre + "  " + op.Apellidos);
+            }
+            Refresh();
         }
     }
 }

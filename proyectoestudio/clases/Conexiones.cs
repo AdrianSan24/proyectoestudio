@@ -258,23 +258,87 @@ namespace proyectoestudio.clases
                 return false;
             }
         }
+        public bool buscarempleado(string codigo)
+        {
+            try
+            {
+                MySqlCommand consulta2 = new MySqlCommand("Select codigoempleado from operarios ", cn);
+
+                MySqlDataReader lector2 = consulta2.ExecuteReader();
+                while (lector2.Read())
+                {
+
+                    if (codigo == lector2.GetString("codigoempleado")){
+                        lector2.Close();
+                        return true;
+                    }
+
+                }
+                lector2.Close();
+                return false;
+            }
+            catch (MySqlException E)
+            {
+                return false;
+            }
+        }
+        public bool buscarusuario(string codigo)
+        {
+            try
+            {
+                MySqlCommand consulta2 = new MySqlCommand("Select codigousuario from usuarios2 ", cn);
+
+                MySqlDataReader lector2 = consulta2.ExecuteReader();
+                while (lector2.Read())
+                {
+
+                    if (codigo == lector2.GetString("codigousuario"))
+                    {
+                        lector2.Close();
+                        return true;
+                    }
+
+                }
+                lector2.Close();
+                return false;
+            }
+            catch (MySqlException E)
+            {
+                return false;
+            }
+        }
         //elimina el empleado o usuario dependiendo del boleano
         public bool eliminar(bool usuario ,string codigo)
         {
             MySqlCommand consulta2= new MySqlCommand();
             try
             {
-                string nombre="",apellidos="";
+                
                 string sentencia2;
                 if (usuario)
                 {
-                   
-                        sentencia2 = String.Format("DELETE FROM `operarios` WHERE `operarios`.`codigousuario`="+ "'" + codigo+ "'" );
+                    if (buscarusuario(codigo))
+                    {
+                        sentencia2 = String.Format("DELETE FROM `usuarios2` WHERE `usuarios2`.`codigousuario`=" + "'" + codigo + "'");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario no encontrado");
+                        return false;
+                    }
                 }
                 else
                 {
+                    if (buscarempleado(codigo))
+                    {
+                        sentencia2 = String.Format("DELETE FROM `operarios` WHERE `operarios`.`codigoempleado`=" + "'" + codigo + "'");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Empleado no encontrado");
+                        return false;
+                    }
                    
-                    sentencia2 = String.Format("DELETE FROM `operarios` WHERE `operarios`.`codigoempleado`=" +"'"+ codigo+"'");
                 }
                
                if( MessageBox.Show("Esta seguro que desea eliminar a  " + codigo, "Eliminar",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning)==DialogResult.OK){
@@ -287,9 +351,11 @@ namespace proyectoestudio.clases
             }
             catch (MySqlException E)
             {
+                MessageBox.Show( "ha habido un fallo en la eliminacion", "Error");
                 return false;
             }
         }
+        //añade los datos a la tabla con los datos de la parada,motivo y descripcion
         public bool Añadirdatos(Operario op,string tiempoParada,string InicioParada,string Finparada,string codigoMaquina,string motivo,string descripcion)
         {
             try
@@ -312,7 +378,7 @@ namespace proyectoestudio.clases
             {
                 return false;
             }
-        }
+        }//añade el tiempo de los atascos y el codigo de la maquina
         public bool AñadirAtascos(Operario op, string tiempoAtasco, string InicioAtasco, string FinAtasco, string codigoMaquina)
         {
             try
@@ -320,7 +386,7 @@ namespace proyectoestudio.clases
                 string sentencia2;
                 
 
-                    sentencia2 = String.Format("INSERT INTO `atascos` (`Cod`, `horainicio`, `horafin`, `tiempo`,`created_at`) VALUES(NULL, '{0}', '{1}', '{2}', CURRENT_TIMESTAMP) ", InicioAtasco, FinAtasco, tiempoAtasco, codigoMaquina, op.Codigo);
+                    sentencia2 = String.Format("INSERT INTO `atascos` (`Cod`, `horainicio`, `horafin`, `tiempo`,`created_at`,`CodigoMaquina`) VALUES(NULL, '{0}', '{1}', '{2}', CURRENT_TIMESTAMP,'{3}') ", InicioAtasco, FinAtasco, tiempoAtasco, codigoMaquina, op.Codigo,codigoMaquina);
                 
                 MySqlCommand consulta2 = new MySqlCommand(sentencia2, cn);
                 consulta2.ExecuteNonQuery();
@@ -331,6 +397,7 @@ namespace proyectoestudio.clases
                 return false;
             }
         }
+        //añade el tiempo total que se ha estado trabajando en los codigos
         public bool AñadirTiempoTotal(string Iniciototal,string  FinTotal,string  tiempoTotal,string codigodetrabajo,string codigoEmpleado, int bandejasmalas)
         {
             try

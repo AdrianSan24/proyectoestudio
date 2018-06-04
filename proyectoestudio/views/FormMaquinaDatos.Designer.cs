@@ -43,6 +43,7 @@
             // dataGridView1
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.horaInicio,
@@ -78,7 +79,7 @@
             // 
             // CodigoMaquina
             // 
-            this.CodigoMaquina.HeaderText = "Codigo Maquina";
+            this.CodigoMaquina.HeaderText = "Codigo ";
             this.CodigoMaquina.Name = "CodigoMaquina";
             this.CodigoMaquina.ReadOnly = true;
             // 
@@ -110,7 +111,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormMaquinaDatos";
-            this.Text = "Maquina Datos";
+            this.Text = " Datos de trabajo";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

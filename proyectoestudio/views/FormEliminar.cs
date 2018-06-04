@@ -32,14 +32,8 @@ namespace proyectoestudio.images
         //se envia el codigo del textbox para eliminar ese ususario o empleado
         private void button2_Click(object sender, EventArgs e)
         {
-            if (con.eliminar(user, textBox1.Text))
-            {
-               
-            }
-            else
-            {
-                MessageBox.Show("Error", "ha habido un fallo en la eliminacion");
-            }
+            con.eliminar(user, textBox1.Text);
+            
             this.Close();
         }
     }

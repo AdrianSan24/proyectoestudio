@@ -178,7 +178,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormInfoOperario";
-            this.Text = "Informacion Operario";
+            this.Text = "Informacion Empleado";
             this.Load += new System.EventHandler(this.FormInfoOperario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGViewDatosempleado)).EndInit();
