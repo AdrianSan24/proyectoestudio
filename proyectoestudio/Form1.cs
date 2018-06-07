@@ -281,7 +281,7 @@ namespace proyectoestudio
         private void btnTiemposMaquina_Click(object sender, EventArgs e)
         {
             FormMaquinaDatos datosmaquina = new FormMaquinaDatos(conexion);
-            if (conexion.comprobarConexion())
+            if (conexion.comprobarConexion() && conexion.cogerTiemposMaquina()!=null)
             {
                 datosmaquina.ShowDialog();
             }

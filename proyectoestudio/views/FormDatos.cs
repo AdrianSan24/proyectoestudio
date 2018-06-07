@@ -31,7 +31,7 @@ namespace proyectoestudio.views
         string codigodetrabajo;//guarda el codigo de la maquina que se esta trabajando 
        
         List<string> motivoslista = new List<string>();//opciones de las causas de las paradas
-        List<string> codes;//lista de los codigos de las maquinas que se van trabajar
+        List<string> codes=new List<string>();//lista de los codigos de las maquinas que se van trabajar
 
         //evento que cuenta el tiempo del trabajo total en un codigo,se ejecuta cada segundo
         private void timerTotal_Tick(object sender, EventArgs e)
@@ -351,16 +351,28 @@ namespace proyectoestudio.views
             codes = new List<string>();
             if (con.comprobarConexion())
             {
-                con.cogercodigos(codes);
+                if (con.cogercodigos(codes))
+                {
+
+                }
+                else
+                {
+                    codes.Add("No hay codigos");
+                }
             }
             else
             {
                 MessageBox.Show("error  la base de datos no esta conectdada,se cerrara el programa");
                 this.Close();
             }
+           
             comboBoxCodigoTrabajo.DataSource = codes;
-            codigodetrabajo = comboBoxCodigoTrabajo.SelectedItem.ToString();
-            lblCodigo.Text = comboBoxCodigoTrabajo.SelectedItem.ToString();
+          
+                codigodetrabajo = comboBoxCodigoTrabajo.SelectedItem.ToString();
+                lblCodigo.Text = comboBoxCodigoTrabajo.SelectedItem.ToString();
+            
+            
+            
             timerTotal.Start();
             this.con = con;
             this.op = op;

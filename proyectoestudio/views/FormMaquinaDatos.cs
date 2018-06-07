@@ -21,10 +21,18 @@ namespace proyectoestudio.views
             con = conexion;
             if (con.comprobarConexion())
             {
-                trabajosMaquina=con.cogerTiemposMaquina();
-                foreach (TrabajoTotal total in trabajosMaquina)
+                if (con.cogerTiemposMaquina() != null)
                 {
-                    dataGridView1.Rows.Add(total.Horainicio, total.Horafin, total.Tiempo, total.Codigomaquina, total.Bandejas, total.CodigoEmpleado,total.Fecha);
+                    trabajosMaquina = con.cogerTiemposMaquina();
+                    foreach (TrabajoTotal total in trabajosMaquina)
+                    {
+                        dataGridView1.Rows.Add(total.Horainicio, total.Horafin, total.Tiempo, total.Codigomaquina, total.Bandejas, total.CodigoEmpleado, total.Fecha);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("error al intentar conectar la base de datos ");
+                    this.Close();
                 }
             }
             else

@@ -67,7 +67,7 @@ namespace proyectoestudio
                         }
                         else
                         {
-                            MessageBox.Show("Error", " Error en la creacion del Operario en la base de datos",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                            MessageBox.Show( " Error en la creacion del Operario en la base de datos", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
                         }
                     }
                     else

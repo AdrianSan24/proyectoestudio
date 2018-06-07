@@ -85,7 +85,7 @@ namespace proyectoestudio.clases
         }
             catch (MySqlException E)
             {
-
+                MessageBox.Show("error en la base de datos al cargar los horarios");
             }
 }
         //consigue los operarios de la base de datos
@@ -127,7 +127,7 @@ namespace proyectoestudio.clases
                 
             }catch(MySqlException ex)
             {
-               
+                MessageBox.Show("error en la base de datos al cargar operarios");
             }
             return ops;
         }
@@ -158,7 +158,7 @@ namespace proyectoestudio.clases
             }
             catch (MySqlException ex)
             {
-
+                MessageBox.Show("error en la base de datos al cargar usuarios");
             }
             return users;
         }
@@ -183,19 +183,26 @@ namespace proyectoestudio.clases
             }
             catch (MySqlException E)
             {
-
+                MessageBox.Show("error en la base de datos al cargar estandares");
             }
         }
         //consigue los codigos
         public void codigos(List<string> codigos)
         {
-            consulta = new MySqlCommand("SELECT codigodemaquina FROM datos ", cn);
-            MySqlDataReader lector = consulta.ExecuteReader();
-            while (lector.Read())
+            try
             {
-                if (!codigos.Contains(lector.GetString(0))) codigos.Add(lector.GetString(0));
+                consulta = new MySqlCommand("SELECT codigodemaquina FROM datos ", cn);
+                MySqlDataReader lector = consulta.ExecuteReader();
+                while (lector.Read())
+                {
+                    if (!codigos.Contains(lector.GetString(0))) codigos.Add(lector.GetString(0));
+                }
+                lector.Close();
             }
-            lector.Close();
+            catch (MySqlException E)
+            {
+                MessageBox.Show("error en la base de datos al cargar codigos"); 
+            }
         }
         //actualiza el usuario  en la BD
         public bool editarUsuario(Usuario user)
