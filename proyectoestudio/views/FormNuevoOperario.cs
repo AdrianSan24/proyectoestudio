@@ -94,10 +94,15 @@ namespace proyectoestudio
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
+                try { 
                 nuevoOperario.rutafoto = openFileDialog1.FileName;
                 nuevoOperario.Foto = new Bitmap(nuevoOperario.rutafoto);
                 pictureBoxE.Image = nuevoOperario.Foto;
-
+                }
+                catch (ArgumentException ex)
+                {
+                    MessageBox.Show( "Se debe seleccionar una imagen");
+                }
             }
         }
 

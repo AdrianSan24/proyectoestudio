@@ -39,11 +39,15 @@ namespace proyectoestudio
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
+                try { 
                 nuevoUsuario.Rutafoto = openFileDialog1.FileName;
                 nuevoUsuario.ImagenPefil = new Bitmap(nuevoUsuario.Rutafoto);
                 pictureBoxU.Image = nuevoUsuario.ImagenPefil;
-                
+            }catch (ArgumentException ex)
+            {
+                MessageBox.Show( "Se debe seleccionar una imagen");
             }
+        }
         }
         // cada vez que cambia de eleccion se guarda la eleccion
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

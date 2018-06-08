@@ -66,10 +66,15 @@ namespace proyectoestudio
         {
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK){
-                user.Rutafoto = openFileDialog1.FileName;
-                user.ImagenPefil = new Bitmap(user.Rutafoto);
-                pictureBoxU.Image = user.ImagenPefil;
-                
+                try
+                {
+                    user.Rutafoto = openFileDialog1.FileName;
+                    user.ImagenPefil = new Bitmap(user.Rutafoto);
+                    pictureBoxU.Image = user.ImagenPefil;
+                }catch(ArgumentException ex)
+                {
+                    MessageBox.Show( "Se debe seleccionar una imagen", "Error");
+                }
             }
            
         }

@@ -85,7 +85,7 @@ namespace proyectoestudio.clases
         }
             catch (MySqlException E)
             {
-                MessageBox.Show("error en la base de datos al cargar los horarios");
+                
             }
 }
         //consigue los operarios de la base de datos
